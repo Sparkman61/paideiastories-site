@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paideia Stories — Personalized Bedtime Stories Delivered Every Night</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --parchment:#fdf8f2;--parchment2:#f7f0e6;
+  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
+  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
+  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--brown)}
+.nav-cta{background:var(--brown);color:var(--cream);border:none;padding:.55rem 1.3rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s,transform .1s}
+.nav-cta:hover{background:var(--brown-mid);transform:translateY(-1px)}
+.hero{max-width:1100px;margin:0 auto;padding:5rem 3rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.35rem 1rem;margin-bottom:1.75rem}
+.hero h1{font-family:'Lora',serif;font-size:clamp(2.2rem,4vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:1.25rem;color:var(--brown)}
+.hero h1 em{font-style:italic;color:var(--brown-mid)}
+.hero-sub{font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:2.25rem;max-width:460px}
+.hero-actions{display:flex;gap:.875rem;flex-wrap:wrap;margin-bottom:2rem}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--brown);color:var(--cream);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
+.btn-primary:hover{background:var(--brown-mid);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--muted);border:1px solid var(--border);padding:.875rem 1.5rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:500;text-decoration:none;transition:border-color .15s,color .15s;cursor:pointer}
+.btn-ghost:hover{border-color:var(--brown-light);color:var(--brown)}
+.hero-proof{display:flex;gap:1.5rem;flex-wrap:wrap}
+.proof-item{font-size:.82rem;color:var(--faint);display:flex;align-items:center;gap:.4rem}
+.proof-check{color:var(--brown-light);font-weight:700}
+.hero-right{display:flex;justify-content:center}
+.story-preview{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;max-width:340px;width:100%;box-shadow:0 8px 40px rgba(91,70,54,.1);position:relative}
+.story-preview::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brown),var(--brown-light));border-radius:var(--radius-xl) var(--radius-xl) 0 0}
+.preview-badge{position:absolute;top:1rem;right:1rem;background:var(--brown);color:var(--cream);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:100px;padding:.2rem .6rem}
+.preview-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
+.preview-icon{width:44px;height:44px;border-radius:50%;background:var(--parchment2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
+.preview-from{font-size:.72rem;color:var(--faint);margin-bottom:2px}
+.preview-title{font-size:.9rem;font-weight:600;color:var(--brown)}
+.preview-subtitle{font-size:.75rem;color:var(--muted)}
+.preview-image{width:100%;height:150px;background:linear-gradient(135deg,#f5e6d3 0%,#e8d5be 50%,#d4bfa0 100%);border-radius:var(--radius-lg);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center}
+.preview-image-text{font-family:'Lora',serif;font-size:.82rem;font-style:italic;color:var(--brown-mid);text-align:center;padding:0 1rem;line-height:1.6}
+.preview-story-text{font-family:'Lora',serif;font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:1.25rem}
+.preview-moral{background:var(--parchment2);border-left:3px solid var(--brown-light);padding:.75rem 1rem;border-radius:0 var(--radius) var(--radius) 0;font-size:.78rem;font-style:italic;color:var(--brown-mid);margin-bottom:1rem}
+.preview-words{display:flex;gap:.5rem;flex-wrap:wrap}
+.preview-word{background:var(--parchment2);border:1px solid var(--border);border-radius:100px;padding:.2rem .65rem;font-size:.72rem;font-weight:600;color:var(--brown-mid)}
+.edu-band{background:var(--brown);color:var(--cream);padding:4rem 3rem}
+.edu-band-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.edu-greek{font-family:'Lora',serif;font-size:4rem;font-weight:700;color:var(--brown-light);margin-bottom:.5rem;letter-spacing:-.02em}
+.edu-pronunciation{font-size:.9rem;color:rgba(249,240,227,.6);margin-bottom:.25rem;letter-spacing:.05em}
+.edu-definition{font-family:'Lora',serif;font-size:1.05rem;font-style:italic;color:rgba(249,240,227,.8);line-height:1.6}
+.edu-right h2{font-family:'Lora',serif;font-size:1.6rem;font-weight:700;line-height:1.25;letter-spacing:-.02em;color:var(--cream);margin-bottom:1rem}
+.edu-right p{font-size:.92rem;color:rgba(249,240,227,.72);line-height:1.75;margin-bottom:.75rem}
+.edu-benefits{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.edu-benefits li{display:flex;align-items:flex-start;gap:.65rem;font-size:.88rem;color:rgba(249,240,227,.78);line-height:1.5}
+.edu-benefits li::before{content:'→';color:var(--brown-light);flex-shrink:0}
+.section{max-width:1000px;margin:0 auto;padding:5rem 3rem}
+.section-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brown-light);margin-bottom:.75rem}
+.section-heading{font-family:'Lora',serif;font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem;color:var(--brown)}
+.section-sub{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:3rem}
+.tiers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.tier-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;transition:border-color .2s,transform .2s}
+.tier-card:hover{border-color:var(--brown-light);transform:translateY(-2px)}
+.tier-emoji{font-size:1.75rem;margin-bottom:.75rem}
+.tier-name{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);margin-bottom:.25rem}
+.tier-ages{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brown-light);margin-bottom:.75rem}
+.tier-desc{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.75rem}
+.tier-spec{font-size:.74rem;color:var(--faint);margin-bottom:.2rem}
+.tier-spec strong{color:var(--brown-mid)}
+.hiw-bg{background:var(--parchment2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
+.steps-grid::before{content:'';position:absolute;top:22px;left:12%;right:12%;height:1px;background:var(--border)}
+.step{text-align:center;padding:0 .5rem;position:relative;z-index:1}
+.step-num{width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid var(--brown-light);color:var(--brown);font-family:'Lora',serif;font-size:1.1rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.step-title{font-weight:600;font-size:.9rem;margin-bottom:.5rem;color:var(--brown)}
+.step-desc{font-size:.8rem;color:var(--muted);line-height:1.55}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:700px;margin:0 auto}
+.pricing-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.25rem;position:relative;overflow:hidden}
+.pricing-card.featured{border-color:var(--brown-light)}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border)}
+.pricing-card.featured::before{background:linear-gradient(90deg,var(--brown),var(--brown-light))}
+.pricing-badge{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(200,169,126,.15);color:var(--brown-light);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.25rem .8rem;margin-bottom:1.25rem}
+.pricing-name{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:var(--brown);margin-bottom:.5rem}
+.pricing-price{font-family:'Lora',serif;font-size:2.75rem;font-weight:700;color:var(--brown);line-height:1;letter-spacing:-.02em;margin-bottom:.25rem}
+.pricing-price sup{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:600;vertical-align:super;line-height:0}
+.pricing-period{font-size:.8rem;color:var(--muted);margin-bottom:.5rem}
+.pricing-annual{font-size:.78rem;color:var(--brown-light);font-weight:600;margin-bottom:1.5rem}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.75rem}
+.pricing-features li{display:flex;align-items:flex-start;gap:.6rem;font-size:.85rem;color:var(--muted)}
+.pricing-features li::before{content:'✓';color:var(--brown-light);font-weight:700;flex-shrink:0}
+.trial-note{font-size:.74rem;color:var(--faint);text-align:center;margin-top:.75rem}
+.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
+.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
+.cta-section h2 em{font-style:italic;color:var(--brown-light)}
+.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
+.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
+.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
+footer p{font-size:.78rem;color:var(--faint)}
+@media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.hero{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}.hero-right{order:-1}.story-preview{max-width:100%}.edu-band{padding:3rem 1.5rem}.edu-band-inner{grid-template-columns:1fr;gap:2rem}.section{padding:3.5rem 1.5rem}.tiers-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr 1fr;gap:2rem}.steps-grid::before{display:none}.pricing-grid{grid-template-columns:1fr;max-width:400px}.cta-section{padding:4rem 1.5rem}footer{padding:1.5rem}}
+@media(max-width:560px){.tiers-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Παιδεία Stories</a>
+  <ul class="nav-links">
+    <li><a href="#why">Why it works</a></li>
+    <li><a href="#ages">Age tiers</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="/start/" class="nav-cta">Start Free Trial →</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">✦ Personalized · Educational · Delivered nightly</div>
+    <h1>A story made for <em>your child</em>, waiting in their inbox every bedtime.</h1>
+    <p class="hero-sub">Paideia Stories generates a unique illustrated bedtime story personalized to your child's age, appearance, and interests — and delivers it to your inbox every night, automatically. The habit never breaks.</p>
+    <div class="hero-actions">
+      <a href="/start/" class="btn-primary">Start Your Free 7-Day Trial →</a>
+      <a href="#why" class="btn-ghost">How it works</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><span class="proof-check">✓</span> 7-day free trial</div>
+      <div class="proof-item"><span class="proof-check">✓</span> Cancel anytime</div>
+      <div class="proof-item"><span class="proof-check">✓</span> New story every night</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="story-preview">
+      <div class="preview-badge">Tonight's Story</div>
+      <div class="preview-header">
+        <div class="preview-icon">📖</div>
+        <div>
+          <div class="preview-from">Paideia Stories · 7:00 PM</div>
+          <div class="preview-title">Emma's Story Tonight</div>
+          <div class="preview-subtitle">The Brave Little Botanist</div>
+        </div>
+      </div>
+      <div class="preview-image">
+        <div class="preview-image-text">A warm watercolor illustration of Emma in a moonlit garden, her curly red hair catching the soft glow of a single luminous flower...</div>
+      </div>
+      <div class="preview-story-text">Emma pressed her nose against the greenhouse glass. Inside, a single blue flower glowed faintly. "Plants don't glow," she whispered. "Unless," said a small voice, "they've been waiting for someone curious enough to notice."</div>
+      <div class="preview-moral">"Curiosity is the seed of every discovery."</div>
+      <div class="preview-words">
+        <span class="preview-word">botanist</span>
+        <span class="preview-word">bioluminescent</span>
+        <span class="preview-word">curious</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="edu-band" id="why">
+  <div class="edu-band-inner">
+    <div>
+      <div class="edu-greek">Παιδεία</div>
+      <div class="edu-pronunciation">py · DAY · ah</div>
+      <div class="edu-definition">"The holistic education of a child — mind, character, and soul — through story, habit, and guided experience."<br>— Ancient Greek philosophy</div>
+    </div>
+    <div class="edu-right">
+      <h2>Reading aloud every night is one of the most powerful things you can do for your child.</h2>
+      <p>Decades of child development research confirm what parents instinctively know: the bedtime story ritual builds more than vocabulary. It builds the child.</p>
+      <ul class="edu-benefits">
+        <li>Builds vocabulary 3× faster than conversation alone</li>
+        <li>Strengthens parent-child emotional bond during calm moments</li>
+        <li>Develops listening comprehension before formal reading begins</li>
+        <li>Introduces moral reasoning through safe, fictional scenarios</li>
+        <li>The nightly ritual signals safety, security, and routine</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="ages">
+  <div class="section-label">Every age, a different story</div>
+  <h2 class="section-heading">Stories that grow with your child</h2>
+  <p class="section-sub">Each story is calibrated to your child's age tier — the right length, vocabulary, and complexity for where they are developmentally.</p>
+  <div class="tiers-grid">
+    <div class="tier-card">
+      <div class="tier-emoji">🌙</div>
+      <div class="tier-name">Dreamlings</div>
+      <div class="tier-ages">Ages 0–2</div>
+      <div class="tier-desc">Simple, rhythmic, soothing. Short sentences and gentle repetition that calm and comfort at the end of the day.</div>
+      <div class="tier-spec"><strong>~75 words</strong> · 6 illustrated scenes</div>
+      <div class="tier-spec">Goodnight Moon style</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-emoji">🌱</div>
+      <div class="tier-name">Sprouts</div>
+      <div class="tier-ages">Ages 3–5</div>
+      <div class="tier-desc">Warm, colorful, playful. Simple vocabulary with light humor and relatable situations your child will recognize.</div>
+      <div class="tier-spec"><strong>~250 words</strong> · 5 illustrated scenes</div>
+      <div class="tier-spec">2–3 new vocabulary words nightly</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-emoji">📚</div>
+      <div class="tier-name">Readers</div>
+      <div class="tier-ages">Ages 6–8</div>
+      <div class="tier-desc">Classic storybook style. A clear hero arc with a real challenge and resolution — stories worth listening to twice.</div>
+      <div class="tier-spec"><strong>~500 words</strong> · 4 illustrated scenes</div>
+      <div class="tier-spec">2–3 new vocabulary words nightly</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-emoji">🔭</div>
+      <div class="tier-name">Explorers</div>
+      <div class="tier-ages">Ages 9–10</div>
+      <div class="tier-desc">Rich, editorial narratives with sophisticated vocabulary introduced naturally. Complex emotions and real moral weight.</div>
+      <div class="tier-spec"><strong>~800 words</strong> · 3 illustrated scenes</div>
+      <div class="tier-spec">Advanced vocabulary, introduced naturally</div>
+    </div>
+  </div>
+</section>
+
+<div class="hiw-bg">
+  <section class="section">
+    <div class="section-label">How it works</div>
+    <h2 class="section-heading">Set up once. Stories arrive every night.</h2>
+    <p class="section-sub">No apps to open. No reminders to set. Just a story waiting in your inbox at the time you choose.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Tell us about your child</div>
+        <div class="step-desc">Name, age, appearance, interests, and bedtime. Takes 3 minutes.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">We generate tonight's story</div>
+        <div class="step-desc">Each night, AI crafts a unique illustrated story personalized to your child's profile.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">It arrives in your inbox</div>
+        <div class="step-desc">The story lands at the time you set — beautifully formatted, ready to read aloud.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Read together</div>
+        <div class="step-desc">Open on your phone or tablet. Read aloud. The habit builds itself, night after night.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section" id="pricing">
+  <div class="section-label" style="text-align:center">Pricing</div>
+  <h2 class="section-heading" style="text-align:center">Simple pricing. Cancel anytime.</h2>
+  <p class="section-sub" style="text-align:center;margin:.5rem auto 2.5rem">Start with a 7-day free trial. No charge until after your trial ends.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-badge">Single Child</div>
+      <div class="pricing-name">Single</div>
+      <div class="pricing-price"><sup>$</sup>25</div>
+      <div class="pricing-period">per month · 1 child</div>
+      <div class="pricing-annual">Or $249/year — save $51</div>
+      <ul class="pricing-features">
+        <li>One personalized child profile</li>
+        <li>Nightly illustrated story by email</li>
+        <li>Age-appropriate vocabulary words</li>
+        <li>Educational moral each night</li>
+        <li>7-day free trial included</li>
+      </ul>
+      <a href="/start/?plan=single" class="btn-primary" style="width:100%;justify-content:center">Start Free Trial →</a>
+      <p class="trial-note">No charge for 7 days. Cancel anytime.</p>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Family — Most Popular</div>
+      <div class="pricing-name">Family</div>
+      <div class="pricing-price"><sup>$</sup>39</div>
+      <div class="pricing-period">per month · up to 4 children</div>
+      <div class="pricing-annual">Or $390/year — save $78</div>
+      <ul class="pricing-features">
+        <li>Up to 4 personalized child profiles</li>
+        <li>Each child gets their own nightly story</li>
+        <li>Different age tiers handled automatically</li>
+        <li>Age-appropriate vocabulary words</li>
+        <li>Educational moral each night</li>
+        <li>7-day free trial included</li>
+      </ul>
+      <a href="/start/?plan=family" class="btn-primary" style="width:100%;justify-content:center">Start Free Trial →</a>
+      <p class="trial-note">No charge for 7 days. Cancel anytime.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
+  <p>Every night, a story made just for them — with their name, their face, their interests. Delivered automatically. The ritual that builds readers.</p>
+  <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo">Παιδεία Stories</a>
+  <p>© 2026 Paideia Stories · paideiastories.com</p>
+</footer>
+
+</body>
+</html>

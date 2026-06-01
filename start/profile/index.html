@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tell Us About Your Child — Paideia Stories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--parchment:#fdf8f2;--parchment2:#f7f0e6;--brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;--cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;--border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
+.page-wrap{max-width:680px;margin:0 auto;padding:3.5rem 2rem 5rem}
+.page-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.35rem 1rem;margin-bottom:1.25rem}
+.page-title{font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--brown);margin-bottom:.75rem}
+.page-sub{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem}
+.form-panel{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.25rem;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(91,70,54,.08)}
+.form-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-light))}
+.section-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brown-light);margin:1.75rem 0 1rem;padding-bottom:.55rem;border-bottom:1px solid var(--border)}
+.section-label:first-of-type{margin-top:0}
+.field-row{display:grid;gap:1rem;margin-bottom:1rem}
+.field-row.cols-2{grid-template-columns:1fr 1fr}
+.field-row.cols-3{grid-template-columns:1fr 1fr 1fr}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field label{font-size:.8rem;font-weight:600;color:var(--muted)}
+.field .req{color:var(--brown-light)}
+.field input,.field select{background:var(--parchment);border:1px solid var(--border);border-radius:var(--radius);padding:.72rem .9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:.92rem;transition:border-color .15s,box-shadow .15s;outline:none;width:100%;-webkit-appearance:none;appearance:none}
+.field input::placeholder{color:var(--faint)}
+.field input:focus,.field select:focus{border-color:var(--brown-light);box-shadow:0 0 0 3px rgba(200,169,126,.2)}
+.field input.invalid,.field select.invalid{border-color:rgba(200,50,50,.7);box-shadow:0 0 0 3px rgba(200,50,50,.1)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(91,70,54,0.4)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.3rem;cursor:pointer}
+.field-hint{font-size:.73rem;color:var(--faint);line-height:1.45}
+.tag-input-wrap{display:flex;flex-wrap:wrap;gap:.4rem;background:var(--parchment);border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .75rem;min-height:44px;cursor:text;transition:border-color .15s,box-shadow .15s}
+.tag-input-wrap:focus-within{border-color:var(--brown-light);box-shadow:0 0 0 3px rgba(200,169,126,.2)}
+.tag-input-wrap.invalid{border-color:rgba(200,50,50,.7)}
+.tag{display:inline-flex;align-items:center;gap:.3rem;background:rgba(200,169,126,.2);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.15rem .55rem;font-size:.78rem;color:var(--brown);font-weight:500}
+.tag-remove{cursor:pointer;color:var(--brown-light);font-size:.9rem;line-height:1;padding:0 .1rem}
+.tag-remove:hover{color:var(--brown)}
+.tag-inner-input{border:none;background:transparent;outline:none;font-family:'Inter',sans-serif;font-size:.85rem;color:var(--text);min-width:120px;padding:.15rem 0}
+.tag-inner-input::placeholder{color:var(--faint)}
+.skin-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem}
+.skin-option{display:flex;flex-direction:column;align-items:center;gap:.3rem;cursor:pointer}
+.skin-option input[type=radio]{position:absolute;opacity:0;width:0;height:0}
+.skin-swatch{width:36px;height:36px;border-radius:50%;border:2px solid transparent;transition:border-color .15s,transform .1s}
+.skin-option input:checked+.skin-swatch{border-color:var(--brown);transform:scale(1.1)}
+.skin-label{font-size:.65rem;color:var(--faint)}
+.time-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-error{display:none;margin-top:1rem;padding:.75rem 1rem;border-radius:var(--radius);background:rgba(200,50,50,.08);border:1px solid rgba(200,50,50,.2);color:#c03232;font-size:.84rem}
+.form-error.visible{display:block}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--brown);color:var(--cream);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer;width:100%;justify-content:center;margin-top:1.25rem}
+.btn-primary:hover{background:var(--brown-mid);transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.success-screen{display:none;text-align:center;padding:2rem 0}
+.success-screen.visible{display:block}
+.success-icon{width:72px;height:72px;border-radius:50%;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;background:rgba(200,169,126,.15);border:2px solid rgba(200,169,126,.4);font-size:2rem}
+.success-title{font-family:'Lora',serif;font-size:1.7rem;font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--brown);margin-bottom:.75rem}
+.success-title em{font-style:italic;color:var(--brown-mid)}
+.success-body{font-size:.92rem;color:var(--muted);line-height:1.7;max-width:400px;margin:0 auto 1.75rem}
+.next-steps{background:var(--parchment2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;text-align:left;margin-bottom:1.5rem}
+.next-steps-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brown-light);margin-bottom:.9rem}
+.next-step{display:flex;gap:.75rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.next-step:last-child{border-bottom:none}
+.next-step-num{width:22px;height:22px;border-radius:50%;background:rgba(200,169,126,.2);border:1px solid rgba(200,169,126,.4);color:var(--brown-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;font-weight:700;margin-top:1px}
+.next-step-text{font-size:.84rem;color:var(--muted);line-height:1.55}
+.next-step-text strong{color:var(--text)}
+footer{border-top:1px solid var(--border);padding:1.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
+footer p{font-size:.78rem;color:var(--faint)}
+@media(max-width:700px){nav{padding:0 1.5rem}.page-wrap{padding:2.5rem 1.25rem 4rem}.form-panel{padding:1.5rem}.field-row.cols-2,.field-row.cols-3{grid-template-columns:1fr}footer{padding:1.5rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Παιδεία Stories</a>
+</nav>
+
+<main class="page-wrap">
+  <div class="page-eyebrow">Almost there</div>
+  <h1 class="page-title">Tell us about your child</h1>
+  <p class="page-sub">This takes about 3 minutes. Every detail you share makes tonight's story more personal — their name, their face, their interests.</p>
+
+  <div class="form-panel">
+    <div id="form-card">
+
+      <div class="section-label">About your child</div>
+
+      <div class="field-row cols-2">
+        <div class="field">
+          <label for="name">Child's name <span class="req">*</span></label>
+          <input type="text" id="name" placeholder="Emma" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="age">Age <span class="req">*</span></label>
+          <select id="age">
+            <option value="">Select age...</option>
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            <option value="6">6</option><option value="7">7</option><option value="8">8</option>
+            <option value="9">9</option><option value="10">10</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Gender <span class="req">*</span></label>
+          <select id="gender">
+            <option value="">Select...</option>
+            <option value="girl">Girl</option>
+            <option value="boy">Boy</option>
+            <option value="neutral">Neutral / non-binary</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-label">Appearance <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.75rem;color:var(--faint)">— used to illustrate your child in the story</span></div>
+
+      <div class="field" style="margin-bottom:1rem">
+        <label>Skin tone <span class="req">*</span></label>
+        <div class="skin-grid">
+          <label class="skin-option"><input type="radio" name="skin_tone" value="1"><div class="skin-swatch" style="background:#FDDBB4"></div><span class="skin-label">1</span></label>
+          <label class="skin-option"><input type="radio" name="skin_tone" value="2"><div class="skin-swatch" style="background:#F5C89A"></div><span class="skin-label">2</span></label>
+          <label class="skin-option"><input type="radio" name="skin_tone" value="3"><div class="skin-swatch" style="background:#D4935A"></div><span class="skin-label">3</span></label>
+          <label class="skin-option"><input type="radio" name="skin_tone" value="4"><div class="skin-swatch" style="background:#A0622A"></div><span class="skin-label">4</span></label>
+          <label class="skin-option"><input type="radio" name="skin_tone" value="5"><div class="skin-swatch" style="background:#6B3A1F"></div><span class="skin-label">5</span></label>
+          <label class="skin-option"><input type="radio" name="skin_tone" value="6"><div class="skin-swatch" style="background:#3B1E0E"></div><span class="skin-label">6</span></label>
+        </div>
+      </div>
+
+      <div class="field-row cols-3">
+        <div class="field">
+          <label for="hair_color">Hair color <span class="req">*</span></label>
+          <select id="hair_color">
+            <option value="">Select...</option>
+            <option>Black</option><option>Dark brown</option><option>Brown</option>
+            <option>Light brown</option><option>Blonde</option><option>Red</option>
+            <option>Auburn</option><option>Gray</option><option>White</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hair_style">Hair style <span class="req">*</span></label>
+          <select id="hair_style">
+            <option value="">Select...</option>
+            <option>Straight</option><option>Wavy</option><option>Curly</option>
+            <option>Coily</option><option>Short</option><option>Long</option>
+            <option>Braided</option><option>Ponytail</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="eye_color">Eye color <span class="req">*</span></label>
+          <select id="eye_color">
+            <option value="">Select...</option>
+            <option>Brown</option><option>Dark brown</option><option>Hazel</option>
+            <option>Green</option><option>Blue</option><option>Gray</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-label">Interests &amp; story preferences</div>
+
+      <div class="field" style="margin-bottom:1rem">
+        <label>Interests <span class="req">*</span></label>
+        <div class="tag-input-wrap" id="interests-wrap">
+          <input class="tag-inner-input" id="interests-input" placeholder="Type an interest and press Enter (e.g. dinosaurs, space, horses)">
+        </div>
+        <span class="field-hint">Press Enter after each one. Add at least 1.</span>
+      </div>
+
+      <div class="field" style="margin-bottom:1rem">
+        <label>Themes to avoid <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
+        <div class="tag-input-wrap" id="avoid-wrap">
+          <input class="tag-inner-input" id="avoid-input" placeholder="e.g. scary, violence, spiders">
+        </div>
+        <span class="field-hint">Press Enter after each one.</span>
+      </div>
+
+      <div class="field" style="margin-bottom:1rem">
+        <label for="educational_focus">Educational focus <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
+        <input type="text" id="educational_focus" placeholder="e.g. kindness, bravery, perseverance, sharing">
+        <span class="field-hint">What character trait or lesson would you like woven into each story?</span>
+      </div>
+
+      <div class="section-label">Delivery</div>
+
+      <div class="time-row">
+        <div class="field">
+          <label for="delivery_time">Story delivery time <span class="req">*</span></label>
+          <select id="delivery_time">
+            <option value="18:00">6:00 PM</option>
+            <option value="18:30">6:30 PM</option>
+            <option value="19:00" selected>7:00 PM</option>
+            <option value="19:30">7:30 PM</option>
+            <option value="20:00">8:00 PM</option>
+            <option value="20:30">8:30 PM</option>
+            <option value="21:00">9:00 PM</option>
+          </select>
+          <span class="field-hint">Story arrives in your inbox at this time.</span>
+        </div>
+        <div class="field">
+          <label for="timezone">Timezone <span class="req">*</span></label>
+          <select id="timezone">
+            <option value="America/New_York">Eastern (ET)</option>
+            <option value="America/Chicago">Central (CT)</option>
+            <option value="America/Denver">Mountain (MT)</option>
+            <option value="America/Los_Angeles">Pacific (PT)</option>
+            <option value="America/Anchorage">Alaska</option>
+            <option value="Pacific/Honolulu">Hawaii</option>
+            <option value="Europe/London">London (GMT)</option>
+            <option value="Europe/Paris">Central Europe (CET)</option>
+            <option value="Australia/Sydney">Sydney (AEST)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-error" id="form-error"></div>
+
+      <button class="btn-primary" id="submit-btn">Save Profile &amp; Start Stories →</button>
+
+    </div>
+
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">🌙</div>
+      <h2 class="success-title">Tonight's story is<br><em>already being written.</em></h2>
+      <p class="success-body">Your child's profile is saved. The first story will arrive in your inbox at the delivery time you chose. Check your email tonight.</p>
+      <div class="next-steps">
+        <div class="next-steps-label">What happens next</div>
+        <div class="next-step">
+          <div class="next-step-num">1</div>
+          <div class="next-step-text"><strong>Tonight:</strong> A personalized illustrated story lands in your inbox.</div>
+        </div>
+        <div class="next-step">
+          <div class="next-step-num">2</div>
+          <div class="next-step-text"><strong>Every night after:</strong> A new story, never the same one twice.</div>
+        </div>
+        <div class="next-step">
+          <div class="next-step-num">3</div>
+          <div class="next-step-text"><strong>Your trial:</strong> 7 days free. No charge until your trial ends.</div>
+        </div>
+      </div>
+      <a href="/" class="btn-primary" style="max-width:280px;margin:0 auto">← Back to Paideia Stories</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="/" class="footer-logo">Παιδεία Stories</a>
+  <p>© 2026 Paideia Stories</p>
+</footer>
+
+<script>
+const API_BASE = 'https://api.paideiastories.com';
+
+// Get session_id from URL
+const SESSION_ID = new URLSearchParams(window.location.search).get('session_id') || '';
+
+// Tag input helper
+function makeTagInput(wrapId, inputId) {
+  const wrap = document.getElementById(wrapId);
+  const inp = document.getElementById(inputId);
+  const tags = [];
+
+  function addTag(val) {
+    const v = val.trim();
+    if (!v || tags.includes(v)) return;
+    tags.push(v);
+    const tag = document.createElement('span');
+    tag.className = 'tag';
+    tag.innerHTML = `${v}<span class="tag-remove" data-val="${v}">×</span>`;
+    wrap.insertBefore(tag, inp);
+  }
+
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      addTag(inp.value);
+      inp.value = '';
+    }
+    if (e.key === 'Backspace' && !inp.value && tags.length) {
+      const last = tags.pop();
+      wrap.querySelector(`[data-val="${last}"]`)?.closest('.tag')?.remove();
+    }
+  });
+
+  wrap.addEventListener('click', e => {
+    if (e.target.classList.contains('tag-remove')) {
+      const val = e.target.dataset.val;
+      const idx = tags.indexOf(val);
+      if (idx > -1) tags.splice(idx, 1);
+      e.target.closest('.tag').remove();
+    } else {
+      inp.focus();
+    }
+  });
+
+  return () => [...tags];
+}
+
+const getInterests = makeTagInput('interests-wrap', 'interests-input');
+const getAvoid = makeTagInput('avoid-wrap', 'avoid-input');
+
+function showError(msg) {
+  const el = document.getElementById('form-error');
+  el.textContent = msg;
+  el.classList.add('visible');
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+function clearError() { document.getElementById('form-error').classList.remove('visible'); }
+
+function markInvalid(id) { const el = document.getElementById(id); if (el) el.classList.add('invalid'); }
+function clearInvalid() { document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid')); }
+
+function getValue(id) { return (document.getElementById(id)?.value || '').trim(); }
+
+document.getElementById('submit-btn').addEventListener('click', async () => {
+  clearError();
+  clearInvalid();
+
+  const name = getValue('name');
+  const age = getValue('age');
+  const gender = getValue('gender');
+  const skin_tone = document.querySelector('input[name=skin_tone]:checked')?.value || '';
+  const hair_color = getValue('hair_color');
+  const hair_style = getValue('hair_style');
+  const eye_color = getValue('eye_color');
+  const interests = getInterests();
+  const avoid_themes = getAvoid();
+  const educational_focus = getValue('educational_focus') || null;
+  const delivery_time = getValue('delivery_time');
+  const timezone = getValue('timezone');
+
+  let firstError = null;
+  const required = { name, age, gender, hair_color, hair_style, eye_color, delivery_time };
+  for (const [key, val] of Object.entries(required)) {
+    if (!val) { markInvalid(key); if (!firstError) firstError = key; }
+  }
+  if (!skin_tone) {
+    document.getElementById('interests-wrap'); // focus skin section
+    if (!firstError) firstError = 'skin';
+    showError('Please select a skin tone.');
+    return;
+  }
+  if (firstError) { showError('Please fill in all required fields.'); document.getElementById(firstError)?.focus(); return; }
+  if (interests.length === 0) {
+    document.getElementById('interests-wrap').classList.add('invalid');
+    showError('Please add at least one interest.');
+    return;
+  }
+  if (!SESSION_ID) {
+    showError('Missing session ID. Please start your trial from the beginning.');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Saving...';
+
+  try {
+    const res = await fetch(`${API_BASE}/api/ps/profile`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        session_id: SESSION_ID,
+        name,
+        age: parseInt(age, 10),
+        gender,
+        skin_tone,
+        hair_color,
+        hair_style,
+        eye_color,
+        interests,
+        avoid_themes,
+        educational_focus,
+        delivery_time,
+        timezone
+      })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok) {
+      document.getElementById('form-card').style.display = 'none';
+      document.getElementById('success-screen').classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    showError(data.error || 'Something went wrong. Please try again.');
+  } catch (e) {
+    showError('Could not reach our servers. Please check your connection and try again.');
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Save Profile & Start Stories →';
+});
+
+// Clear invalid on input
+document.querySelectorAll('input, select').forEach(el => {
+  el.addEventListener('input', () => el.classList.remove('invalid'));
+  el.addEventListener('change', () => el.classList.remove('invalid'));
+});
+</script>
+</body>
+</html>
