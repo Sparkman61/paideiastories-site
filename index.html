@@ -45,7 +45,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 .preview-icon{width:44px;height:44px;border-radius:50%;background:var(--parchment2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
 .preview-from{font-size:.72rem;color:var(--faint);margin-bottom:2px}
 .preview-title{font-size:.9rem;font-weight:600;color:var(--brown)}
-.preview-subtitle{font-size:.75rem;color:var(--muted)}
+.preview-arc{font-size:.72rem;color:var(--brown-light);font-weight:500;margin-top:2px}
 .preview-image{width:100%;border-radius:var(--radius-lg);margin-bottom:1.25rem;overflow:hidden}
 .preview-image img{width:100%;display:block;border-radius:var(--radius-lg)}
 .preview-story-text{font-family:'Lora',serif;font-size:.88rem;line-height:1.7;color:var(--text);margin-bottom:1.25rem}
@@ -75,6 +75,27 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 .tier-desc{font-size:.82rem;color:var(--muted);line-height:1.55;margin-bottom:.75rem}
 .tier-spec{font-size:.74rem;color:var(--faint);margin-bottom:.2rem}
 .tier-spec strong{color:var(--brown-mid)}
+/* Arc section */
+.arc-bg{background:var(--parchment2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.arc-inner{max-width:1000px;margin:0 auto;padding:5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.arc-left h2{font-family:'Lora',serif;font-size:clamp(1.7rem,3.5vw,2.3rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem;color:var(--brown)}
+.arc-left h2 em{font-style:italic;color:var(--brown-mid)}
+.arc-left p{font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.arc-benefits{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:1.25rem}
+.arc-benefits li{display:flex;align-items:flex-start;gap:.65rem;font-size:.88rem;color:var(--muted);line-height:1.5}
+.arc-benefits li::before{content:'✦';color:var(--brown-light);flex-shrink:0;font-size:.7rem;margin-top:.2rem}
+.arc-right{display:flex;flex-direction:column;gap:.75rem}
+.arc-chapter{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
+.arc-chapter:hover{border-color:var(--brown-light)}
+.arc-chapter-num{width:36px;height:36px;border-radius:50%;background:var(--parchment2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:.85rem;font-weight:700;color:var(--brown);flex-shrink:0}
+.arc-chapter-num.active{background:var(--brown);border-color:var(--brown);color:var(--cream)}
+.arc-chapter-title{font-size:.85rem;font-weight:600;color:var(--brown);margin-bottom:.15rem}
+.arc-chapter-desc{font-size:.75rem;color:var(--muted)}
+.arc-chapter-badge{margin-left:auto;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(200,169,126,.15);color:var(--brown-light);border:1px solid rgba(200,169,126,.3);border-radius:100px;padding:.2rem .6rem;flex-shrink:0}
+.arc-dots{display:flex;align-items:center;gap:.4rem;padding:.5rem 1.25rem}
+.arc-dot{width:5px;height:5px;border-radius:50%;background:var(--border)}
+.arc-note{font-size:.78rem;color:var(--faint);text-align:center;font-style:italic;margin-top:.5rem}
+/* How it works */
 .hiw-bg{background:var(--parchment2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
 .steps-grid::before{content:'';position:absolute;top:22px;left:12%;right:12%;height:1px;background:var(--border)}
@@ -106,7 +127,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
 footer p{font-size:.78rem;color:var(--faint)}
-@media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.hero{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}.hero-right{order:-1}.story-preview{max-width:100%}.edu-band{padding:3rem 1.5rem}.edu-band-inner{grid-template-columns:1fr;gap:2rem}.section{padding:3.5rem 1.5rem}.tiers-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr 1fr;gap:2rem}.steps-grid::before{display:none}.pricing-grid{grid-template-columns:1fr;max-width:400px}.cta-section{padding:4rem 1.5rem}footer{padding:1.5rem}}
+@media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.hero{grid-template-columns:1fr;padding:3rem 1.5rem;gap:2.5rem}.hero-right{order:-1}.story-preview{max-width:100%}.edu-band{padding:3rem 1.5rem}.edu-band-inner{grid-template-columns:1fr;gap:2rem}.arc-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.5rem 1.5rem}.section{padding:3.5rem 1.5rem}.tiers-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr 1fr;gap:2rem}.steps-grid::before{display:none}.pricing-grid{grid-template-columns:1fr;max-width:400px}.cta-section{padding:4rem 1.5rem}footer{padding:1.5rem}}
 @media(max-width:560px){.tiers-grid{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column}.btn-primary,.btn-ghost{width:100%;justify-content:center}}
 </style>
 </head>
@@ -116,6 +137,7 @@ footer p{font-size:.78rem;color:var(--faint)}
   <a href="/" class="nav-logo">Παιδεία Stories</a>
   <ul class="nav-links">
     <li><a href="#why">Why it works</a></li>
+    <li><a href="#arc">The Arc</a></li>
     <li><a href="#ages">Age tiers</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="/sample/">Sample story</a></li>
@@ -127,17 +149,17 @@ footer p{font-size:.78rem;color:var(--faint)}
 
 <section class="hero">
   <div>
-    <div class="hero-eyebrow">✦ Personalized · Educational · Delivered nightly</div>
-    <h1>A story made for <em>your child</em>, waiting in their inbox every bedtime.</h1>
-    <p class="hero-sub">Paideia Stories generates a unique illustrated bedtime story personalized to your child's age, appearance, and interests — and delivers it to your inbox every night, automatically. The habit never breaks.</p>
+    <div class="hero-eyebrow">✦ Personalized · Serialized · Delivered nightly</div>
+    <h1>A <em>30-night story arc</em> made for your child, waiting in their inbox every bedtime.</h1>
+    <p class="hero-sub">Each child gets a personalized 30-chapter adventure — their own hero, their own world, their own characters. A new chapter arrives every night by email, automatically. They'll be asking for bedtime before you do.</p>
     <div class="hero-actions">
       <a href="/start/" class="btn-primary">Start Your Free 7-Day Trial →</a>
-      <a href="#why" class="btn-ghost">How it works</a>
+      <a href="#arc" class="btn-ghost">How the arc works</a>
     </div>
     <div class="hero-proof">
       <div class="proof-item"><span class="proof-check">✓</span> 7-day free trial</div>
       <div class="proof-item"><span class="proof-check">✓</span> Cancel anytime</div>
-      <div class="proof-item"><span class="proof-check">✓</span> New story every night</div>
+      <div class="proof-item"><span class="proof-check">✓</span> 30-chapter serialized arcs</div>
     </div>
   </div>
   <div class="hero-right">
@@ -148,7 +170,7 @@ footer p{font-size:.78rem;color:var(--faint)}
         <div>
           <div class="preview-from">Paideia Stories · 7:00 PM</div>
           <div class="preview-title">Emma's Story Tonight</div>
-          <div class="preview-subtitle">The Brave Little Botanist</div>
+          <div class="preview-arc">Emma and the Garden of Living Stars — Chapter 7 of 30</div>
         </div>
       </div>
       <div class="preview-image">
@@ -182,6 +204,63 @@ footer p{font-size:.78rem;color:var(--faint)}
         <li>Introduces moral reasoning through safe, fictional scenarios</li>
         <li>The nightly ritual signals safety, security, and routine</li>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div class="arc-bg" id="arc">
+  <div class="arc-inner">
+    <div class="arc-left">
+      <div class="section-label">The 30-Night Arc</div>
+      <h2>Not just a story. <em>An adventure that unfolds.</em></h2>
+      <p>Every child gets a personalized 30-chapter story arc — complete with recurring characters, a consistent world, and an overarching quest. Each night picks up exactly where last night ended, with a gentle cliffhanger that makes tomorrow's bedtime something to look forward to.</p>
+      <p>Morals and vocabulary build progressively across the arc. By chapter 30, your child has followed a complete hero's journey — and they were the hero the whole time.</p>
+      <ul class="arc-benefits">
+        <li>A new arc begins automatically every 30 days</li>
+        <li>Consistent characters and world across all 30 chapters</li>
+        <li>Each chapter ends on a cliffhanger — bedtime becomes anticipated</li>
+        <li>Vocabulary and morals build progressively through the arc</li>
+        <li>Every arc is unique — no two children ever get the same story</li>
+      </ul>
+    </div>
+    <div class="arc-right">
+      <div class="arc-chapter">
+        <div class="arc-chapter-num">1</div>
+        <div>
+          <div class="arc-chapter-title">The Discovery</div>
+          <div class="arc-chapter-desc">Emma finds the glowing flower and meets Pip, the tiny moon sprite.</div>
+        </div>
+        <div class="arc-chapter-badge">Sent</div>
+      </div>
+      <div class="arc-chapter">
+        <div class="arc-chapter-num">2</div>
+        <div>
+          <div class="arc-chapter-title">The First Clue</div>
+          <div class="arc-chapter-desc">Pip reveals the map is hidden somewhere in the garden's oldest tree.</div>
+        </div>
+        <div class="arc-chapter-badge">Sent</div>
+      </div>
+      <div class="arc-chapter">
+        <div class="arc-chapter-num active">3</div>
+        <div>
+          <div class="arc-chapter-title">Tonight's Chapter</div>
+          <div class="arc-chapter-desc">Emma climbs the oak at midnight — but something is waiting at the top.</div>
+        </div>
+        <div class="arc-chapter-badge" style="background:rgba(91,70,54,.1);color:var(--brown);border-color:rgba(91,70,54,.2)">Tonight</div>
+      </div>
+      <div class="arc-dots">
+        <div class="arc-dot"></div>
+        <div class="arc-dot"></div>
+        <div class="arc-dot"></div>
+      </div>
+      <div class="arc-chapter" style="opacity:.5">
+        <div class="arc-chapter-num">30</div>
+        <div>
+          <div class="arc-chapter-title">The Garden Restored</div>
+          <div class="arc-chapter-desc">Emma returns the lost star — and the garden blooms with light.</div>
+        </div>
+      </div>
+      <p class="arc-note">Emma and the Garden of Living Stars — a 30-chapter arc, generated just for Emma.</p>
     </div>
   </div>
 </div>
@@ -230,7 +309,7 @@ footer p{font-size:.78rem;color:var(--faint)}
   <section class="section">
     <div class="section-label">How it works</div>
     <h2 class="section-heading">Set up once. Stories arrive every night.</h2>
-    <p class="section-sub">No apps to open. No reminders to set. Just a story waiting in your inbox at the time you choose.</p>
+    <p class="section-sub">No apps to open. No reminders to set. Just a chapter waiting in your inbox at the time you choose.</p>
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">1</div>
@@ -239,18 +318,18 @@ footer p{font-size:.78rem;color:var(--faint)}
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <div class="step-title">We generate tonight's story</div>
-        <div class="step-desc">Each night, AI crafts a unique illustrated story personalized to your child's profile.</div>
+        <div class="step-title">We create their arc</div>
+        <div class="step-desc">AI crafts a unique 30-chapter adventure — title, characters, world, and quest — personalized to your child.</div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-title">It arrives in your inbox</div>
-        <div class="step-desc">The story lands at the time you set — beautifully formatted, ready to read aloud.</div>
+        <div class="step-title">Tonight's chapter arrives</div>
+        <div class="step-desc">Each evening, the next illustrated chapter lands in your inbox at the exact time you set.</div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <div class="step-title">Read together</div>
-        <div class="step-desc">Open on your phone or tablet. Read aloud. The habit builds itself, night after night.</div>
+        <div class="step-title">Read together. Repeat.</div>
+        <div class="step-desc">Open on your phone or tablet. Read aloud. Tomorrow night, they'll be asking what happens next.</div>
       </div>
     </div>
   </section>
@@ -269,7 +348,8 @@ footer p{font-size:.78rem;color:var(--faint)}
       <div class="pricing-annual">Or $249/year — save $51</div>
       <ul class="pricing-features">
         <li>One personalized child profile</li>
-        <li>Nightly illustrated story by email</li>
+        <li>30-chapter serialized story arc, renewed monthly</li>
+        <li>Nightly illustrated chapter by email</li>
         <li>Age-appropriate vocabulary words</li>
         <li>Educational moral each night</li>
         <li>7-day free trial included</li>
@@ -285,8 +365,9 @@ footer p{font-size:.78rem;color:var(--faint)}
       <div class="pricing-annual">Or $390/year — save $78</div>
       <ul class="pricing-features">
         <li>Up to 4 personalized child profiles</li>
-        <li>Each child gets their own nightly story</li>
+        <li>Each child gets their own 30-chapter arc</li>
         <li>Different age tiers handled automatically</li>
+        <li>Nightly illustrated chapter by email</li>
         <li>Age-appropriate vocabulary words</li>
         <li>Educational moral each night</li>
         <li>7-day free trial included</li>
@@ -299,7 +380,7 @@ footer p{font-size:.78rem;color:var(--faint)}
 
 <section class="cta-section">
   <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
-  <p>Every night, a story made just for them — with their name, their face, their interests. Delivered automatically. The ritual that builds readers.</p>
+  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
   <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
 </section>
 
