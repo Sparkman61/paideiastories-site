@@ -67,12 +67,26 @@ footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-
   nav{padding:0 1.25rem}
   main{padding:2rem 1rem;align-items:flex-start;padding-top:3rem}
 }
+.nav-links{display:flex;list-style:none;gap:1.75rem;margin:0;padding:0}
+.nav-links a{font-size:.875rem;font-weight:500;color:var(--brown-mid);text-decoration:none;transition:color .15s}
+.nav-links a:hover{color:var(--brown)}
+@media(max-width:768px){.nav-links{display:none}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">Παιδεία <span>Stories</span></a>
+  <a href="/" class="nav-logo">Παιδεία Stories</a>
+  <ul class="nav-links">
+    <li><a href="/#why">Why it works</a></li>
+    <li><a href="/#arc">The Arc</a></li>
+    <li><a href="/#ages">Age tiers</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/sample/">Sample story</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/login/">Sign In</a></li>
+  </ul>
+  <a href="/start/" class="nav-cta">Start Free Trial →</a>
 </nav>
 
 <main>
