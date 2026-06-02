@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample Story — Paideia Stories</title>
+<meta name="description" content="See exactly what a Paideia Stories bedtime story looks like — illustrated, personalized, and delivered to your inbox every night.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --parchment:#fdf8f2;--parchment2:#f7f0e6;
+  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
+  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
+  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
+  --green:#3a6b4a;--green-bg:rgba(58,107,74,.08);--green-border:rgba(58,107,74,.25);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
+.nav-cta{background:var(--brown);color:var(--cream);border:none;padding:.55rem 1.3rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s}
+.nav-cta:hover{background:var(--brown-mid)}
+
+/* PAGE HEADER */
+.page-header{max-width:700px;margin:0 auto;padding:3.5rem 2rem 0;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.3rem .9rem;margin-bottom:1rem}
+.page-title{font-family:'Lora',serif;font-size:2.2rem;font-weight:700;color:var(--brown);letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem}
+.page-sub{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:500px;margin:0 auto 1.5rem}
+.profile-bar{display:inline-flex;align-items:center;gap:.75rem;background:#fff;border:1px solid var(--border);border-radius:100px;padding:.5rem 1.25rem;font-size:.8rem;color:var(--muted);margin-bottom:3rem;flex-wrap:wrap;justify-content:center}
+.profile-tag{display:inline-flex;align-items:center;gap:.3rem;font-weight:500;color:var(--brown-mid)}
+.profile-sep{color:var(--border);font-size:.9rem}
+
+/* EMAIL WRAPPER */
+.email-wrap{max-width:620px;margin:0 auto 4rem;padding:0 1.5rem}
+.email-chrome{background:#f1ede8;border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:1rem 1.5rem;border:1px solid var(--border);border-bottom:none;display:flex;align-items:center;gap:.75rem}
+.chrome-dots{display:flex;gap:.45rem}
+.chrome-dot{width:12px;height:12px;border-radius:50%}
+.chrome-dot:nth-child(1){background:#ff6058}
+.chrome-dot:nth-child(2){background:#ffbd2e}
+.chrome-dot:nth-child(3){background:#28c840}
+.chrome-subject{font-size:.8rem;color:var(--muted);margin-left:.5rem}
+.chrome-subject strong{color:var(--brown);font-weight:600}
+
+/* EMAIL BODY */
+.email-body{background:#fff;border:1px solid var(--border);border-radius:0 0 var(--radius-xl) var(--radius-xl);overflow:hidden}
+.email-header{background:var(--brown);padding:2rem 2.5rem;text-align:center}
+.email-logo{font-family:'Lora',serif;font-size:1.2rem;font-weight:700;color:var(--cream);letter-spacing:.02em}
+.email-tagline{font-size:.75rem;color:rgba(249,240,227,.6);margin-top:.25rem;letter-spacing:.05em}
+.email-content{padding:2rem 2.5rem}
+.email-greeting{font-family:'Lora',serif;font-size:1rem;color:var(--brown-mid);margin-bottom:.25rem;font-style:italic}
+.email-story-title{font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:var(--brown);letter-spacing:-.02em;line-height:1.2;margin-bottom:.25rem}
+.email-story-subtitle{font-size:.82rem;color:var(--faint);margin-bottom:1.75rem;letter-spacing:.02em}
+.story-divider{width:48px;height:2px;background:var(--brown-light);margin:0 0 1.75rem;border-radius:2px}
+
+/* STORY SCENES */
+.scene{margin-bottom:1.75rem}
+.scene-img{width:100%;border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:.85rem;font-style:italic;color:var(--brown-mid);text-align:center;padding:1.5rem;line-height:1.6}
+.scene-img-1{background:linear-gradient(135deg,#e8d5b7 0%,#d4b896 40%,#c4a07a 100%)}
+.scene-img-2{background:linear-gradient(135deg,#c5d4e8 0%,#a0b8d4 40%,#7a9cba 100%)}
+.scene-img-3{background:linear-gradient(135deg,#d4e8c5 0%,#b8d4a0 40%,#9cba7a 100%)}
+.scene-img-4{background:linear-gradient(135deg,#e8c5d4 0%,#d4a0b8 40%,#ba7a9c 100%)}
+.scene-text{font-family:'Lora',serif;font-size:1rem;line-height:1.85;color:var(--text)}
+
+/* MORAL + VOCAB */
+.email-moral{background:var(--parchment2);border-left:3px solid var(--brown-light);padding:1rem 1.25rem;border-radius:0 var(--radius) var(--radius) 0;margin:1.75rem 0;font-family:'Lora',serif;font-size:.92rem;font-style:italic;color:var(--brown-mid);line-height:1.6}
+.email-moral strong{display:block;font-size:.65rem;font-family:'Inter',sans-serif;font-style:normal;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brown-light);margin-bottom:.35rem}
+.vocab-section{margin:1.5rem 0}
+.vocab-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:.75rem}
+.vocab-list{display:flex;flex-direction:column;gap:.6rem}
+.vocab-item{display:flex;gap:.75rem;align-items:baseline}
+.vocab-word{font-family:'Lora',serif;font-weight:700;color:var(--brown);font-size:.9rem;min-width:110px;flex-shrink:0}
+.vocab-def{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+/* EMAIL FOOTER */
+.email-cta-block{background:var(--parchment2);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;margin:2rem 0 0}
+.email-cta-text{font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
+.email-cta-btn{display:inline-block;background:var(--brown);color:var(--cream);padding:.65rem 1.5rem;border-radius:var(--radius);font-size:.85rem;font-weight:600;text-decoration:none}
+.email-footer-note{padding:1.5rem 2.5rem;border-top:1px solid var(--border);font-size:.72rem;color:var(--faint);text-align:center;line-height:1.7}
+
+/* CTA SECTION */
+.cta-section{background:var(--brown);padding:5rem 2rem;text-align:center}
+.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:.75rem}
+.cta-section h2 em{font-style:italic;color:var(--brown-light)}
+.cta-section p{color:rgba(249,240,227,.7);font-size:.95rem;max-width:420px;margin:0 auto 2rem;line-height:1.7}
+.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s}
+.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+.cta-note{font-size:.78rem;color:rgba(249,240,227,.5);margin-top:.75rem}
+
+/* WHAT YOU GET STRIP */
+.what-strip{max-width:700px;margin:0 auto;padding:3rem 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center}
+.what-item-icon{font-size:1.5rem;margin-bottom:.5rem}
+.what-item-title{font-size:.85rem;font-weight:600;color:var(--brown);margin-bottom:.25rem}
+.what-item-desc{font-size:.78rem;color:var(--muted);line-height:1.55}
+
+/* FOOTER */
+footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-top:1px solid #f0e8d8}
+
+@media(max-width:600px){
+  nav{padding:0 1.25rem}
+  .page-header{padding:2.5rem 1.25rem 0}
+  .email-wrap{padding:0 1rem}
+  .email-content{padding:1.5rem 1.5rem}
+  .email-header{padding:1.5rem}
+  .email-footer-note{padding:1.25rem 1.5rem}
+  .what-strip{grid-template-columns:1fr;gap:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Παιδεία Stories</a>
+  <a href="/start/" class="nav-cta">Start Free Trial →</a>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">✦ Real example — exactly what arrives in your inbox</div>
+  <h1 class="page-title">Tonight's story for Mia</h1>
+  <p class="page-sub">This is a real Paideia Story — the same format, quality, and personalization your child will receive every night.</p>
+  <div class="profile-bar">
+    <span class="profile-tag">👧 Mia, age 7</span>
+    <span class="profile-sep">·</span>
+    <span class="profile-tag">🎨 Loves art &amp; dinosaurs</span>
+    <span class="profile-sep">·</span>
+    <span class="profile-tag">🌙 Delivered at 7:30 PM</span>
+    <span class="profile-sep">·</span>
+    <span class="profile-tag">📚 Readers tier (ages 6–8)</span>
+  </div>
+</div>
+
+<div class="email-wrap">
+
+  <!-- Email chrome -->
+  <div class="email-chrome">
+    <div class="chrome-dots">
+      <div class="chrome-dot"></div>
+      <div class="chrome-dot"></div>
+      <div class="chrome-dot"></div>
+    </div>
+    <div class="chrome-subject">
+      <strong>Mia's Story Tonight — The Painter Who Found the Missing Color</strong>
+      &nbsp;· stories@paideiastories.com · 7:30 PM
+    </div>
+  </div>
+
+  <!-- Email body -->
+  <div class="email-body">
+
+    <div class="email-header">
+      <div class="email-logo">Παιδεία Stories</div>
+      <div class="email-tagline">Tonight's story · Tuesday, June 2</div>
+    </div>
+
+    <div class="email-content">
+
+      <div class="email-greeting">Good evening, Mia ✦</div>
+      <h2 class="email-story-title">The Painter Who Found the Missing Color</h2>
+      <div class="email-story-subtitle">A story for readers · 487 words</div>
+      <div class="story-divider"></div>
+
+      <!-- Scene 1 -->
+      <div class="scene">
+        <div class="scene-img scene-img-1">
+          A warm watercolor illustration of Mia in a sun-drenched studio, her dark curly hair tied back with a paint-splattered ribbon, standing before a canvas filled with every color imaginable — except one.
+        </div>
+        <p class="scene-text">Mia had every color in the world. Fifty-three tubes of paint lined her studio shelf, from Antique Rose to Zaffre Blue. She had painted sunsets and oceans, jungles and city rooftops. But tonight, staring at her blank canvas, she felt something was missing.</p>
+        <p class="scene-text">"It's not here," she said, pressing her nose close to the tubes and reading each label carefully. "The color I need — it doesn't exist."</p>
+        <p class="scene-text">Her grandmother appeared in the doorway, her silver hair catching the lamplight. "What color are you looking for?"</p>
+        <p class="scene-text">"The color of the moment right before something wonderful happens," said Mia. "Right before the first bite of birthday cake. Right before the curtain goes up. Right before your best friend's face when they open your gift."</p>
+      </div>
+
+      <!-- Scene 2 -->
+      <div class="scene">
+        <div class="scene-img scene-img-2">
+          A soft blue-toned illustration of Mia and her grandmother walking through a moonlit neighborhood, Mia carrying a small lantern, both looking up at the sky with expressions of quiet wonder.
+        </div>
+        <p class="scene-text">Her grandmother smiled. "I've been looking for that color my whole life. Come on — let's go find it."</p>
+        <p class="scene-text">They walked outside into the blue hour, when the sky turns the color of deep water and the first stars appear. Mia brought her lantern and a small notebook. She wrote down everything she observed: the way the streetlights buzzed to life one by one, the smell of someone's dinner drifting from an open window, the sound of a dog scratching at a door, eager to be let in.</p>
+        <p class="scene-text">"Anticipation," said her grandmother quietly. "That's what you're trying to paint."</p>
+        <p class="scene-text">Mia stopped walking. "Is anticipation a color?"</p>
+        <p class="scene-text">"Every feeling has a color," her grandmother said. "Some of them haven't been mixed yet."</p>
+      </div>
+
+      <!-- Scene 3 -->
+      <div class="scene">
+        <div class="scene-img scene-img-3">
+          A luminous green-gold illustration of Mia back at her easel, mixing paints by lantern light, her face glowing with concentration as a new color emerges on her palette — something between gold and green and the last light of evening.
+        </div>
+        <p class="scene-text">Back in the studio, Mia stood at her easel and began to mix. A little of the gold she used for sunsets. A touch of the deep green she saved for forests after rain. A drop — just one — of the violet she used for the moment before a storm.</p>
+        <p class="scene-text">The new color was strange and beautiful. It didn't have a name yet.</p>
+        <p class="scene-text">"What will you call it?" her grandmother asked.</p>
+        <p class="scene-text">Mia thought for a long moment. She dipped her brush and made a single stroke across the canvas. The color seemed to breathe.</p>
+        <p class="scene-text">"Almost," she said. "I'll call it Almost."</p>
+      </div>
+
+      <!-- Scene 4 -->
+      <div class="scene">
+        <div class="scene-img scene-img-4">
+          A rose-toned illustration of the finished painting on the wall, glowing warmly in the lamplight, while Mia and her grandmother sit together below it with cups of cocoa, looking satisfied and peaceful.
+        </div>
+        <p class="scene-text">The painting hung on the wall above the shelf of fifty-three tubes. Now there were fifty-four colors in Mia's studio — and one of them was entirely her own.</p>
+        <p class="scene-text">That night, as she fell asleep, she thought about all the colors that might still be waiting to be found. The color of a secret kept for exactly the right moment. The color of remembering a dream. The color of being brave enough to begin.</p>
+        <p class="scene-text">There was so much left to paint.</p>
+      </div>
+
+      <!-- Moral -->
+      <div class="email-moral">
+        <strong>Tonight's Lesson</strong>
+        When something you need doesn't exist yet, that is your invitation to create it.
+      </div>
+
+      <!-- Vocabulary -->
+      <div class="vocab-section">
+        <div class="vocab-label">Tonight's vocabulary words</div>
+        <div class="vocab-list">
+          <div class="vocab-item">
+            <div class="vocab-word">anticipation</div>
+            <div class="vocab-def">The feeling of excitement or eagerness about something that is about to happen.</div>
+          </div>
+          <div class="vocab-item">
+            <div class="vocab-word">luminous</div>
+            <div class="vocab-def">Giving off or reflecting a soft, glowing light; bright and beautiful.</div>
+          </div>
+          <div class="vocab-item">
+            <div class="vocab-word">observe</div>
+            <div class="vocab-def">To watch something carefully and pay close attention to the details.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA block inside email -->
+      <div class="email-cta-block">
+        <div class="email-cta-text">Tomorrow night, Mia gets a brand new story — personalized just for her. Every night, automatically.</div>
+        <a href="/start/" class="email-cta-btn">Start your child's free trial →</a>
+      </div>
+
+    </div><!-- /email-content -->
+
+    <div class="email-footer-note">
+      Paideia Stories · paideiastories.com<br>
+      Stories are generated fresh each night for your child's profile.<br>
+      <a href="/account/" style="color:var(--faint)">Manage account</a> · <a href="/privacy/" style="color:var(--faint)">Privacy Policy</a>
+    </div>
+
+  </div><!-- /email-body -->
+</div><!-- /email-wrap -->
+
+<!-- What you get strip -->
+<div style="background:var(--parchment2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="what-strip">
+    <div>
+      <div class="what-item-icon">🎨</div>
+      <div class="what-item-title">Illustrated scenes</div>
+      <div class="what-item-desc">Each story includes beautiful illustrated scenes generated to match your child's appearance and the story's world.</div>
+    </div>
+    <div>
+      <div class="what-item-icon">📖</div>
+      <div class="what-item-title">Age-calibrated story</div>
+      <div class="what-item-desc">Length, vocabulary, and complexity matched exactly to your child's developmental stage — a different tier for every age.</div>
+    </div>
+    <div>
+      <div class="what-item-icon">📬</div>
+      <div class="what-item-title">In your inbox every night</div>
+      <div class="what-item-desc">No app to open. No reminder to set. The story arrives at the time you choose, ready to read aloud at bedtime.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA section -->
+<section class="cta-section">
+  <h2>Your child's story is<br><em>waiting to be written.</em></h2>
+  <p>Start with a 7-day free trial. Set up takes 3 minutes. The first story arrives tonight.</p>
+  <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
+  <div class="cta-note">No charge for 7 days · Cancel anytime · New story every night</div>
+</section>
+
+<footer>
+  <a href="/privacy/" style="color:#999;text-decoration:none">Privacy Policy</a>
+  <span style="margin:0 0.5rem">·</span>
+  <a href="/terms/" style="color:#999;text-decoration:none">Terms of Service</a>
+  <span style="margin:0 0.5rem">·</span>
+  <span>© 2026 Paideia Stories</span>
+</footer>
+
+</body>
+</html>
