@@ -59,11 +59,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 
 /* STORY SCENES */
 .scene{margin-bottom:1.75rem}
-.scene-img{width:100%;border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:.85rem;font-style:italic;color:var(--brown-mid);text-align:center;padding:1.5rem;line-height:1.6}
-.scene-img-1{background:linear-gradient(135deg,#e8d5b7 0%,#d4b896 40%,#c4a07a 100%)}
-.scene-img-2{background:linear-gradient(135deg,#c5d4e8 0%,#a0b8d4 40%,#7a9cba 100%)}
-.scene-img-3{background:linear-gradient(135deg,#d4e8c5 0%,#b8d4a0 40%,#9cba7a 100%)}
-.scene-img-4{background:linear-gradient(135deg,#e8c5d4 0%,#d4a0b8 40%,#ba7a9c 100%)}
+.scene-img{width:100%;border-radius:var(--radius-lg);margin-bottom:1rem;overflow:hidden;display:block}
+.scene-img img{width:100%;display:block;border-radius:var(--radius-lg)}
 .scene-text{font-family:'Lora',serif;font-size:1rem;line-height:1.85;color:var(--text)}
 
 /* MORAL + VOCAB */
@@ -165,8 +162,8 @@ footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-
 
       <!-- Scene 1 -->
       <div class="scene">
-        <div class="scene-img scene-img-1">
-          A warm watercolor illustration of Mia in a sun-drenched studio, her dark curly hair tied back with a paint-splattered ribbon, standing before a canvas filled with every color imaginable — except one.
+        <div class="scene-img">
+          <img src="/images/scene1.png" alt="Mia in her sun-drenched studio, standing before a canvas filled with every color imaginable">
         </div>
         <p class="scene-text">Mia had every color in the world. Fifty-three tubes of paint lined her studio shelf, from Antique Rose to Zaffre Blue. She had painted sunsets and oceans, jungles and city rooftops. But tonight, staring at her blank canvas, she felt something was missing.</p>
         <p class="scene-text">"It's not here," she said, pressing her nose close to the tubes and reading each label carefully. "The color I need — it doesn't exist."</p>
@@ -176,8 +173,8 @@ footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-
 
       <!-- Scene 2 -->
       <div class="scene">
-        <div class="scene-img scene-img-2">
-          A soft blue-toned illustration of Mia and her grandmother walking through a moonlit neighborhood, Mia carrying a small lantern, both looking up at the sky with expressions of quiet wonder.
+        <div class="scene-img">
+          <img src="/images/scene2.png" alt="Mia and her grandmother walking through a moonlit neighborhood, Mia carrying a small lantern">
         </div>
         <p class="scene-text">Her grandmother smiled. "I've been looking for that color my whole life. Come on — let's go find it."</p>
         <p class="scene-text">They walked outside into the blue hour, when the sky turns the color of deep water and the first stars appear. Mia brought her lantern and a small notebook. She wrote down everything she observed: the way the streetlights buzzed to life one by one, the smell of someone's dinner drifting from an open window, the sound of a dog scratching at a door, eager to be let in.</p>
@@ -188,8 +185,8 @@ footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-
 
       <!-- Scene 3 -->
       <div class="scene">
-        <div class="scene-img scene-img-3">
-          A luminous green-gold illustration of Mia back at her easel, mixing paints by lantern light, her face glowing with concentration as a new color emerges on her palette — something between gold and green and the last light of evening.
+        <div class="scene-img">
+          <img src="/images/scene3.png" alt="Mia at her easel mixing paints by lantern light, a new color emerging on her palette">
         </div>
         <p class="scene-text">Back in the studio, Mia stood at her easel and began to mix. A little of the gold she used for sunsets. A touch of the deep green she saved for forests after rain. A drop — just one — of the violet she used for the moment before a storm.</p>
         <p class="scene-text">The new color was strange and beautiful. It didn't have a name yet.</p>
@@ -200,8 +197,8 @@ footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-
 
       <!-- Scene 4 -->
       <div class="scene">
-        <div class="scene-img scene-img-4">
-          A rose-toned illustration of the finished painting on the wall, glowing warmly in the lamplight, while Mia and her grandmother sit together below it with cups of cocoa, looking satisfied and peaceful.
+        <div class="scene-img">
+          <img src="/images/scene4.png" alt="The finished painting on the wall, Mia and her grandmother sitting below it with cups of cocoa">
         </div>
         <p class="scene-text">The painting hung on the wall above the shelf of fifty-three tubes. Now there were fifty-four colors in Mia's studio — and one of them was entirely her own.</p>
         <p class="scene-text">That night, as she fell asleep, she thought about all the colors that might still be waiting to be found. The color of a secret kept for exactly the right moment. The color of remembering a dream. The color of being brave enough to begin.</p>
@@ -284,7 +281,7 @@ footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-
   <span style="margin:0 0.5rem">·</span>
   <a href="/terms/" style="color:#999;text-decoration:none">Terms of Service</a>
   <span style="margin:0 0.5rem">·</span>
-  <span>© 2026 Paideia Stories</span>
+  <span>© 2026 VenturePipeline LLC</span>
 </footer>
 
 </body>
