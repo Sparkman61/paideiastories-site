@@ -123,34 +123,27 @@ const API = 'https://api.paideiastories.com';
 // Check for token in URL — handle magic link click
 const params = new URLSearchParams(window.location.search);
 const token = params.get('token');
+const error = params.get('error');
 
 if (token) {
   document.getElementById('login-wrap').style.display = 'none';
   document.getElementById('verify-wrap').style.display = 'block';
   verifyToken(token);
+} else if (error) {
+  // Redirected back from API with an error (expired/invalid token)
+  document.getElementById('login-wrap').style.display = 'none';
+  document.getElementById('verify-wrap').style.display = 'block';
+  document.getElementById('verifying-state').style.display = 'none';
+  document.getElementById('verify-error').style.display = 'block';
 } else {
   document.getElementById('login-email').focus();
 }
 
-async function verifyToken(token) {
-  try {
-    const res = await fetch(`${API}/api/ps/verify-login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ token })
-    });
-    document.getElementById('verifying-state').style.display = 'none';
-    if (res.ok) {
-      document.getElementById('verify-success').style.display = 'block';
-      setTimeout(() => { window.location.href = '/account/'; }, 1200);
-    } else {
-      document.getElementById('verify-error').style.display = 'block';
-    }
-  } catch {
-    document.getElementById('verifying-state').style.display = 'none';
-    document.getElementById('verify-error').style.display = 'block';
-  }
+function verifyToken(token) {
+  // The verify-login endpoint is a GET that sets the session cookie and redirects.
+  // Hand off directly — the API will redirect to /account on success,
+  // or to /login?error=invalid_token on failure.
+  window.location.href = `${API}/api/ps/verify-login?token=${encodeURIComponent(token)}`;
 }
 
 async function sendLoginLink() {
