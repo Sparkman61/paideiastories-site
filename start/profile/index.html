@@ -72,6 +72,15 @@ footer{border-top:1px solid var(--border);padding:1.5rem 3rem;display:flex;align
 .footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
 footer p{font-size:.78rem;color:var(--faint)}
 @media(max-width:700px){nav{padding:0 1.5rem}.page-wrap{padding:2.5rem 1.25rem 4rem}.form-panel{padding:1.5rem}.field-row.cols-2,.field-row.cols-3{grid-template-columns:1fr}footer{padding:1.5rem}}
+.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
+footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+footer p{font-size:.78rem;color:var(--faint)}
+.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
+.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
+.cta-section h2 em{font-style:italic;color:var(--brown-light)}
+.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
+.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
+.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -265,166 +274,22 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
   </div>
 </main>
 
+<section class="cta-section">
+  <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
+  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
+  <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
+</section>
+
 <footer>
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>© 2026 Paideia Stories</p>
-</footer>
-
-<script>
-const API_BASE = 'https://api.paideiastories.com';
-
-// Get session_id from URL
-const SESSION_ID = new URLSearchParams(window.location.search).get('session_id') || '';
-
-// Tag input helper
-function makeTagInput(wrapId, inputId) {
-  const wrap = document.getElementById(wrapId);
-  const inp = document.getElementById(inputId);
-  const tags = [];
-
-  function addTag(val) {
-    const v = val.trim();
-    if (!v || tags.includes(v)) return;
-    tags.push(v);
-    const tag = document.createElement('span');
-    tag.className = 'tag';
-    tag.innerHTML = `${v}<span class="tag-remove" data-val="${v}">×</span>`;
-    wrap.insertBefore(tag, inp);
-  }
-
-  inp.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault();
-      addTag(inp.value);
-      inp.value = '';
-    }
-    if (e.key === 'Backspace' && !inp.value && tags.length) {
-      const last = tags.pop();
-      wrap.querySelector(`[data-val="${last}"]`)?.closest('.tag')?.remove();
-    }
-  });
-
-  wrap.addEventListener('click', e => {
-    if (e.target.classList.contains('tag-remove')) {
-      const val = e.target.dataset.val;
-      const idx = tags.indexOf(val);
-      if (idx > -1) tags.splice(idx, 1);
-      e.target.closest('.tag').remove();
-    } else {
-      inp.focus();
-    }
-  });
-
-  return () => [...tags];
-}
-
-const getInterests = makeTagInput('interests-wrap', 'interests-input');
-const getAvoid = makeTagInput('avoid-wrap', 'avoid-input');
-
-function showError(msg) {
-  const el = document.getElementById('form-error');
-  el.textContent = msg;
-  el.classList.add('visible');
-  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-function clearError() { document.getElementById('form-error').classList.remove('visible'); }
-
-function markInvalid(id) { const el = document.getElementById(id); if (el) el.classList.add('invalid'); }
-function clearInvalid() { document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid')); }
-
-function getValue(id) { return (document.getElementById(id)?.value || '').trim(); }
-
-document.getElementById('submit-btn').addEventListener('click', async () => {
-  clearError();
-  clearInvalid();
-
-  const name = getValue('name');
-  const age = getValue('age');
-  const gender = getValue('gender');
-  const skin_tone = document.querySelector('input[name=skin_tone]:checked')?.value || '';
-  const hair_color = getValue('hair_color');
-  const hair_style = getValue('hair_style');
-  const eye_color = getValue('eye_color');
-  const interests = getInterests();
-  const avoid_themes = getAvoid();
-  const educational_focus = getValue('educational_focus') || null;
-  const delivery_time = getValue('delivery_time');
-  const timezone = getValue('timezone');
-
-  let firstError = null;
-  const required = { name, age, gender, hair_color, hair_style, eye_color, delivery_time };
-  for (const [key, val] of Object.entries(required)) {
-    if (!val) { markInvalid(key); if (!firstError) firstError = key; }
-  }
-  if (!skin_tone) {
-    document.getElementById('interests-wrap'); // focus skin section
-    if (!firstError) firstError = 'skin';
-    showError('Please select a skin tone.');
-    return;
-  }
-  if (firstError) { showError('Please fill in all required fields.'); document.getElementById(firstError)?.focus(); return; }
-  if (interests.length === 0) {
-    document.getElementById('interests-wrap').classList.add('invalid');
-    showError('Please add at least one interest.');
-    return;
-  }
-  if (!SESSION_ID) {
-    showError('Missing session ID. Please start your trial from the beginning.');
-    return;
-  }
-
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Saving...';
-
-  try {
-    const res = await fetch(`${API_BASE}/api/ps/profile`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        session_id: SESSION_ID,
-        name,
-        age: parseInt(age, 10),
-        gender,
-        skin_tone,
-        hair_color,
-        hair_style,
-        eye_color,
-        interests,
-        avoid_themes,
-        educational_focus,
-        delivery_time,
-        timezone
-      })
-    });
-    const data = await res.json().catch(() => ({}));
-    if (res.ok) {
-      document.getElementById('form-card').style.display = 'none';
-      document.getElementById('success-screen').classList.add('visible');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    showError(data.error || 'Something went wrong. Please try again.');
-  } catch (e) {
-    showError('Could not reach our servers. Please check your connection and try again.');
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Save Profile & Start Stories →';
-});
-
-// Clear invalid on input
-document.querySelectorAll('input, select').forEach(el => {
-  el.addEventListener('input', () => el.classList.remove('invalid'));
-  el.addEventListener('change', () => el.classList.remove('invalid'));
-});
-</script>
-<footer style="text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-top:1px solid #f0e8d8;margin-top:2rem">
-  <a href="/privacy/" style="color:#999;text-decoration:none">Privacy Policy</a>
-  <span style="margin:0 0.5rem">·</span>
-  <a href="/terms/" style="color:#999;text-decoration:none">Terms of Service</a>
-  <span style="margin:0 0.5rem">·</span>
-  <span>© 2026 Paideia Stories</span>
+  <p>
+    <a href="/about/" style="color:inherit;text-decoration:none">About</a>
+    <span style="margin:0 0.5rem">·</span>
+    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
+    <span style="margin:0 0.5rem">·</span>
+    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
+  </p>
+  <p>© 2026 VenturePipeline LLC · paideiastories.com</p>
 </footer>
 </body>
 </html>
