@@ -14,6 +14,11 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--brown)}
+.nav-cta{background:var(--brown);color:var(--cream);border:none;padding:.55rem 1.3rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s,transform .1s}
+.nav-cta:hover{background:var(--brown-mid);transform:translateY(-1px)}
 .page-shell{max-width:1100px;margin:0 auto;padding:4rem 3rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .page-copy{position:sticky;top:96px}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.35rem 1rem;margin-bottom:1.5rem}
@@ -53,7 +58,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 footer{border-top:1px solid var(--border);padding:1.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
 footer p{font-size:.78rem;color:var(--faint)}
-@media(max-width:900px){nav{padding:0 1.5rem}.page-shell{grid-template-columns:1fr;padding:2.5rem 1.5rem;gap:2rem}.page-copy{position:static}footer{padding:1.5rem}}
+@media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.page-shell{grid-template-columns:1fr;padding:2.5rem 1.5rem;gap:2rem}.page-copy{position:static}footer{padding:1.5rem}}
 @media(max-width:560px){.plan-grid{grid-template-columns:1fr}}
 </style>
 <!-- Meta Pixel Code -->
@@ -143,7 +148,12 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
 
 <footer>
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>© 2026 Paideia Stories</p>
+  <p>
+    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
+    <span style="margin:0 0.5rem">·</span>
+    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
+  </p>
+  <p>© 2026 VenturePipeline LLC</p>
 </footer>
 
 <script>
@@ -212,12 +222,5 @@ document.getElementById('email').addEventListener('input', () => {
   clearError();
 });
 </script>
-<footer style="text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-top:1px solid #f0e8d8;margin-top:2rem">
-  <a href="/privacy/" style="color:#999;text-decoration:none">Privacy Policy</a>
-  <span style="margin:0 0.5rem">·</span>
-  <a href="/terms/" style="color:#999;text-decoration:none">Terms of Service</a>
-  <span style="margin:0 0.5rem">·</span>
-  <span>© 2026 Paideia Stories</span>
-</footer>
 </body>
 </html>
