@@ -8,39 +8,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/paideia.css">
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"/></noscript>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --parchment:#fdf8f2;--parchment2:#f7f0e6;
-  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
-  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
-  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
-  --green:#3a6b4a;--green-bg:rgba(58,107,74,.08);--green-border:rgba(58,107,74,.25);
-  --red:#8b2c2c;--red-bg:rgba(139,44,44,.07);--red-border:rgba(139,44,44,.2);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none;display:flex;align-items:center;gap:.5rem}
-.nav-logo span{opacity:.55;font-weight:400}
-.nav-right{font-size:.83rem;color:var(--faint)}
-
-/* LAYOUT */
+body{min-height:100vh}
 .page{max-width:780px;margin:0 auto;padding:3rem 2rem 5rem}
 .page-header{margin-bottom:2.5rem}
 .page-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.3rem .9rem;margin-bottom:1rem}
 .page-title{font-family:'Lora',serif;font-size:2rem;font-weight:700;letter-spacing:-.02em;color:var(--brown);line-height:1.2;margin-bottom:.4rem}
 .page-email{font-size:.9rem;color:var(--muted)}
-
-/* CARDS */
+.nav-right{font-size:.83rem;color:var(--faint)}
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem 2rem;margin-bottom:1.25rem;position:relative;overflow:hidden;box-shadow:0 2px 16px rgba(91,70,54,.05)}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-light))}
 .card-title{font-family:'Lora',serif;font-size:1.05rem;font-weight:700;color:var(--brown);margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
-.card-title svg{opacity:.6}
-
-/* SUBSCRIBER INFO */
 .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .info-label{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
 .info-value{font-size:.95rem;font-weight:600;color:var(--text)}
@@ -49,30 +30,33 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 .badge-trialing{background:rgba(200,169,126,.15);color:var(--brown-mid);border:1px solid rgba(200,169,126,.4)}
 .badge-canceled{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
-
-/* CHILDREN */
 .children-list{display:flex;flex-direction:column;gap:1rem}
 .child-card{background:var(--parchment2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
 .child-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--brown-light),var(--brown));display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:1.2rem;font-weight:700;color:var(--cream);flex-shrink:0}
 .child-name{font-family:'Lora',serif;font-size:1.05rem;font-weight:700;color:var(--brown);margin-bottom:.35rem}
 .child-meta{display:flex;flex-wrap:wrap;gap:.5rem .75rem}
 .child-tag{font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:.3rem}
-.child-tag-icon{font-size:.85rem}
 .child-interests{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem}
 .interest-pill{background:#fff;border:1px solid var(--border);border-radius:100px;padding:.15rem .6rem;font-size:.7rem;font-weight:500;color:var(--brown-mid)}
-
-/* TRIAL NOTICE */
 .trial-notice{background:rgba(200,169,126,.1);border:1px solid rgba(200,169,126,.35);border-radius:var(--radius-lg);padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:.75rem;margin-bottom:1.25rem}
 .trial-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
 .trial-text{font-size:.85rem;color:var(--brown-mid);line-height:1.55}
 .trial-text strong{color:var(--brown);font-weight:600}
-
-/* BUTTONS */
 .btn-cancel{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--red);border:1px solid var(--red-border);padding:.6rem 1.25rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s}
 .btn-cancel:hover{background:var(--red-bg);border-color:var(--red)}
 .btn-cancel:disabled{opacity:.45;cursor:not-allowed}
-
-/* LOGIN WALL */
+.cancel-confirm{display:none;margin-top:1.25rem;background:var(--red-bg);border:1px solid var(--red-border);border-radius:var(--radius-lg);padding:1rem 1.25rem}
+.cancel-confirm p{font-size:.88rem;color:var(--red);margin-bottom:.875rem;line-height:1.5}
+.cancel-confirm-actions{display:flex;gap:.75rem}
+.btn-confirm-cancel{background:var(--red);color:#fff;border:none;padding:.55rem 1.1rem;border-radius:var(--radius);font-size:.83rem;font-weight:600;cursor:pointer;transition:opacity .15s}
+.btn-confirm-cancel:hover{opacity:.85}
+.btn-nevermind{background:transparent;color:var(--muted);border:1px solid var(--border);padding:.55rem 1.1rem;border-radius:var(--radius);font-size:.83rem;font-weight:500;cursor:pointer;transition:border-color .15s,color .15s}
+.btn-nevermind:hover{border-color:var(--brown-light);color:var(--brown)}
+.loading-state{display:grid;gap:1.25rem}
+.skeleton-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem 2rem;position:relative;overflow:hidden}
+.skeleton-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--parchment2)}
+.sk-line{height:.85em;border-radius:4px;background:linear-gradient(90deg,var(--parchment2) 25%,#ede3d4 50%,var(--parchment2) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;margin-bottom:.6rem}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 .login-wall{display:none;max-width:440px;margin:4rem auto 0;text-align:center}
 .login-wall-icon{font-size:2.5rem;margin-bottom:1.25rem}
 .login-wall h2{font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:var(--brown);margin-bottom:.75rem;letter-spacing:-.02em}
@@ -81,76 +65,30 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 .login-form::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-light))}
 .login-input{width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;color:var(--text);background:var(--parchment);margin-bottom:.75rem;outline:none;transition:border-color .15s}
 .login-input:focus{border-color:var(--brown-light)}
-.btn-primary{width:100%;padding:.8rem;background:var(--brown);color:var(--cream);border:none;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .15s}
-.btn-primary:hover{background:var(--brown-mid)}
-.btn-primary:disabled{opacity:.5;cursor:not-allowed}
-
-/* MESSAGES */
-.msg{display:none;padding:.75rem 1rem;border-radius:var(--radius);font-size:.85rem;margin-top:.75rem}
-.msg-success{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
-.msg-error{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-
-/* CANCEL CONFIRM */
-.cancel-confirm{display:none;margin-top:1.25rem;background:var(--red-bg);border:1px solid var(--red-border);border-radius:var(--radius-lg);padding:1rem 1.25rem}
-.cancel-confirm p{font-size:.88rem;color:var(--red);margin-bottom:.875rem;line-height:1.5}
-.cancel-confirm-actions{display:flex;gap:.75rem}
-.btn-confirm-cancel{background:var(--red);color:#fff;border:none;padding:.55rem 1.1rem;border-radius:var(--radius);font-size:.83rem;font-weight:600;cursor:pointer;transition:opacity .15s}
-.btn-confirm-cancel:hover{opacity:.85}
-.btn-nevermind{background:transparent;color:var(--muted);border:1px solid var(--border);padding:.55rem 1.1rem;border-radius:var(--radius);font-size:.83rem;font-weight:500;cursor:pointer;transition:border-color .15s,color .15s}
-.btn-nevermind:hover{border-color:var(--brown-light);color:var(--brown)}
-
-/* LOADING */
-.loading-state{display:grid;gap:1.25rem}
-.skeleton-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem 2rem;position:relative;overflow:hidden}
-.skeleton-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--parchment2)}
-.sk-line{height:.85em;border-radius:4px;background:linear-gradient(90deg,var(--parchment2) 25%,#ede3d4 50%,var(--parchment2) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;margin-bottom:.6rem}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-/* RESPONSIVE */
-@media(max-width:600px){
-  nav{padding:0 1.25rem}
-  .page{padding:2rem 1.25rem 4rem}
-  .info-grid{grid-template-columns:1fr 1fr}
-  .child-card{grid-template-columns:1fr}
-}
-.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
-footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-footer p{font-size:.78rem;color:var(--faint)}
-.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
-.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
-.cta-section h2 em{font-style:italic;color:var(--brown-light)}
-.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
-.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
-.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+.btn-login-wall{width:100%;padding:.8rem;background:var(--brown);color:var(--cream);border:none;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .15s}
+.btn-login-wall:hover{background:var(--brown-mid)}
+.btn-login-wall:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:600px){.page{padding:2rem 1.25rem 4rem}.info-grid{grid-template-columns:1fr 1fr}.child-card{grid-template-columns:1fr}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1517837789692750');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-<nav>
-  <a href="/" class="nav-logo">Παιδεία <span>Stories</span></a>
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Παιδεία Stories</a>
   <span class="nav-right" id="nav-email"></span>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/">Home</a>
+  <a href="/sample/">Sample story</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/start/" class="nav-cta-mobile">Start Free Trial →</a>
+</div>
+<script src="/js/nav.js"></script>
 
 <div class="page">
-
-  <!-- LOADING STATE -->
   <div id="loading-state" class="loading-state">
     <div class="skeleton-card">
       <div class="sk-line" style="width:30%;margin-bottom:1rem"></div>
@@ -167,43 +105,27 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- ACCOUNT VIEW (hidden until loaded) -->
   <div id="account-view" style="display:none">
     <div class="page-header">
       <div class="page-eyebrow">✦ My Account</div>
       <div class="page-title">Good evening ✦</div>
       <div class="page-email" id="account-email"></div>
     </div>
-
-    <!-- Trial notice (shown when trialing) -->
     <div class="trial-notice" id="trial-notice" style="display:none">
       <div class="trial-icon">📅</div>
       <div class="trial-text" id="trial-notice-text"></div>
     </div>
-
-    <!-- Subscription card -->
     <div class="card">
       <div class="card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
         Subscription
       </div>
       <div class="info-grid">
-        <div>
-          <div class="info-label">Plan</div>
-          <div class="info-value" id="info-plan">—</div>
-        </div>
-        <div>
-          <div class="info-label">Status</div>
-          <div class="info-value" id="info-status">—</div>
-        </div>
-        <div>
-          <div class="info-label" id="info-date-label">Trial ends</div>
-          <div class="info-value" id="info-date">—</div>
-        </div>
+        <div><div class="info-label">Plan</div><div class="info-value" id="info-plan">—</div></div>
+        <div><div class="info-label">Status</div><div class="info-value" id="info-status">—</div></div>
+        <div><div class="info-label" id="info-date-label">Trial ends</div><div class="info-value" id="info-date">—</div></div>
       </div>
     </div>
-
-    <!-- Children card -->
     <div class="card">
       <div class="card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -211,8 +133,6 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
       </div>
       <div class="children-list" id="children-list"></div>
     </div>
-
-    <!-- Cancel section -->
     <div class="card" id="cancel-card">
       <div class="card-title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
@@ -232,215 +152,43 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- LOGIN WALL (shown on 401) -->
   <div class="login-wall" id="login-wall">
     <div class="login-wall-icon">📖</div>
     <h2>Sign in to your account</h2>
     <p>We'll send a magic link to your email — no password needed.</p>
     <div class="login-form">
       <input type="email" class="login-input" id="login-email" placeholder="your@email.com" autocomplete="email">
-      <button class="btn-primary" id="login-btn" onclick="sendLoginLink()">Send login link</button>
+      <button class="btn-login-wall" id="login-btn" onclick="sendLoginLink()">Send login link</button>
       <div class="msg msg-success" id="login-success">Check your inbox — your magic link is on the way.</div>
       <div class="msg msg-error" id="login-error">Something went wrong. Please try again.</div>
     </div>
   </div>
+</div>
 
-</div><!-- /page -->
-
-<script>
-const API = 'https://api.paideiastories.com';
-
-function planLabel(tier) {
-  const map = {
-    single: 'Monthly — Single Child',
-    family: 'Monthly — Family',
-    annual_single: 'Annual — Single Child',
-    annual_family: 'Annual — Family',
-  };
-  return map[tier] || tier;
-}
-
-function statusBadge(status) {
-  if (status === 'active') return '<span class="badge badge-active"><span class="badge-dot"></span>Active</span>';
-  if (status === 'trialing') return '<span class="badge badge-trialing"><span class="badge-dot"></span>Free Trial</span>';
-  if (status === 'canceled') return '<span class="badge badge-canceled"><span class="badge-dot"></span>Canceled</span>';
-  return `<span class="badge badge-trialing">${status}</span>`;
-}
-
-function initial(name) {
-  return name ? name.charAt(0).toUpperCase() : '?';
-}
-
-function formatTime(timeStr) {
-  if (!timeStr) return '—';
-  const [h, m] = timeStr.split(':').map(Number);
-  const ampm = h >= 12 ? 'PM' : 'AM';
-  const h12 = h % 12 || 12;
-  return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
-}
-
-function formatDate(isoStr) {
-  if (!isoStr) return '—';
-  const d = new Date(isoStr);
-  return d.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
-}
-
-function showTrialNotice(trialEndsAt) {
-  if (!trialEndsAt) return;
-  const end = new Date(trialEndsAt);
-  const now = new Date();
-  const days = Math.ceil((end - now) / (1000*60*60*24));
-  if (days > 0) {
-    document.getElementById('trial-notice-text').innerHTML =
-      `Your free trial ends in <strong>${days} day${days===1?'':'s'}</strong> (${formatDate(trialEndsAt)}). After that, your plan renews automatically. Cancel any time below.`;
-    document.getElementById('trial-notice').style.display = 'flex';
-  }
-}
-
-function renderChildren(children) {
-  const list = document.getElementById('children-list');
-  if (!children || children.length === 0) {
-    list.innerHTML = '<p style="font-size:.88rem;color:var(--muted)">No children added yet.</p>';
-    return;
-  }
-  list.innerHTML = children.map(c => {
-    const interests = (c.interests || []).slice(0,4).map(i =>
-      `<span class="interest-pill">${i}</span>`
-    ).join('');
-    const tzShort = c.timezone ? c.timezone.split('/').pop().replace(/_/g,' ') : '';
-    return `
-      <div class="child-card">
-        <div class="child-avatar">${initial(c.name)}</div>
-        <div>
-          <div class="child-name">${c.name}</div>
-          <div class="child-meta">
-            <span class="child-tag"><span class="child-tag-icon">🎂</span> Age ${c.age}</span>
-            <span class="child-tag"><span class="child-tag-icon">🌙</span> ${formatTime(c.delivery_time)} ${tzShort}</span>
-            ${c.educational_focus ? `<span class="child-tag"><span class="child-tag-icon">📚</span> ${c.educational_focus}</span>` : ''}
-          </div>
-          ${interests ? `<div class="child-interests">${interests}</div>` : ''}
-        </div>
-      </div>`;
-  }).join('');
-}
-
-async function loadAccount() {
-  try {
-    const res = await fetch(`${API}/api/ps/account`, {credentials:'include'});
-    if (res.status === 401) { showLoginWall(); return; }
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    renderAccount(data);
-  } catch(e) {
-    console.error('Account load error:', e);
-    showLoginWall();
-  }
-}
-
-function renderAccount(data) {
-  const sub = data.subscriber;
-  const children = data.children || [];
-
-  document.getElementById('loading-state').style.display = 'none';
-  document.getElementById('account-view').style.display = 'block';
-  document.getElementById('nav-email').textContent = sub.email;
-  document.getElementById('account-email').textContent = sub.email;
-  document.getElementById('info-plan').textContent = planLabel(sub.plan_tier);
-  document.getElementById('info-status').innerHTML = statusBadge(sub.status);
-
-  if (sub.trial_ends_at) {
-    document.getElementById('info-date-label').textContent =
-      sub.status === 'trialing' ? 'Trial ends' : 'Billing date';
-    document.getElementById('info-date').textContent = formatDate(sub.trial_ends_at);
-  }
-
-  if (sub.status === 'trialing') showTrialNotice(sub.trial_ends_at);
-  renderChildren(children);
-  if (sub.status === 'canceled') document.getElementById('cancel-card').style.display = 'none';
-}
-
-function showLoginWall() {
-  document.getElementById('loading-state').style.display = 'none';
-  document.getElementById('login-wall').style.display = 'block';
-}
-
-async function sendLoginLink() {
-  const email = document.getElementById('login-email').value.trim();
-  const btn = document.getElementById('login-btn');
-  const success = document.getElementById('login-success');
-  const error = document.getElementById('login-error');
-  success.style.display = 'none';
-  error.style.display = 'none';
-  if (!email) return;
-  btn.disabled = true;
-  btn.textContent = 'Sending\u2026';
-  try {
-    const res = await fetch(`${API}/api/ps/send-login`, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({email})
-    });
-    if (res.ok) { success.style.display = 'block'; btn.textContent = 'Sent!'; }
-    else throw new Error();
-  } catch {
-    error.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Send login link';
-  }
-}
-
-document.getElementById('login-email').addEventListener('keydown', e => {
-  if (e.key === 'Enter') sendLoginLink();
-});
-
-function showCancelConfirm() {
-  document.getElementById('cancel-confirm').style.display = 'block';
-  document.getElementById('btn-cancel-show').style.display = 'none';
-}
-function hideCancelConfirm() {
-  document.getElementById('cancel-confirm').style.display = 'none';
-  document.getElementById('btn-cancel-show').style.display = 'inline-flex';
-}
-
-async function confirmCancel() {
-  const btn = document.getElementById('btn-confirm-cancel');
-  const success = document.getElementById('cancel-success');
-  const error = document.getElementById('cancel-error');
-  btn.disabled = true;
-  btn.textContent = 'Cancelling\u2026';
-  try {
-    const res = await fetch(`${API}/api/ps/cancel`, {method:'POST', credentials:'include'});
-    if (res.ok) {
-      document.getElementById('cancel-confirm').style.display = 'none';
-      success.style.display = 'block';
-      document.getElementById('info-status').innerHTML = statusBadge('canceled');
-      document.getElementById('btn-cancel-show').style.display = 'none';
-    } else throw new Error();
-  } catch {
-    error.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Yes, cancel';
-  }
-}
-
-loadAccount();
-</script>
-<section class="cta-section">
-  <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
-  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
-  <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
-</section>
-
-<footer>
+<footer class="site-footer">
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>
-    <a href="/about/" style="color:inherit;text-decoration:none">About</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
-  </p>
+  <p><a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a><span style="margin:0 .5rem">·</span><a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a></p>
   <p>© 2026 VenturePipeline LLC · paideiastories.com</p>
 </footer>
+
+<script>
+var API='https://api.paideiastories.com';
+function planLabel(t){return{single:'Monthly — Single Child',family:'Monthly — Family',annual_single:'Annual — Single Child',annual_family:'Annual — Family'}[t]||t}
+function statusBadge(s){if(s==='active')return'<span class="badge badge-active"><span class="badge-dot"></span>Active</span>';if(s==='trialing')return'<span class="badge badge-trialing"><span class="badge-dot"></span>Free Trial</span>';if(s==='canceled')return'<span class="badge badge-canceled"><span class="badge-dot"></span>Canceled</span>';return'<span class="badge badge-trialing">'+s+'</span>';}
+function initial(n){return n?n.charAt(0).toUpperCase():'?'}
+function formatTime(t){if(!t)return'—';var p=t.split(':').map(Number),h=p[0],m=p[1],ap=h>=12?'PM':'AM',h12=h%12||12;return h12+':'+(m<10?'0':'')+m+' '+ap;}
+function formatDate(s){if(!s)return'—';return new Date(s).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
+function showTrialNotice(e){if(!e)return;var d=new Date(e),days=Math.ceil((d-new Date())/(864e5));if(days>0){document.getElementById('trial-notice-text').innerHTML='Your free trial ends in <strong>'+days+' day'+(days===1?'':'s')+'</strong> ('+formatDate(e)+'). After that, your plan renews automatically. Cancel any time below.';document.getElementById('trial-notice').style.display='flex';}}
+function renderChildren(children){var list=document.getElementById('children-list');if(!children||!children.length){list.innerHTML='<p style="font-size:.88rem;color:var(--muted)">No children added yet.</p>';return;}list.innerHTML=children.map(function(c){var interests=(c.interests||[]).slice(0,4).map(function(i){return'<span class="interest-pill">'+i+'</span>';}).join('');var tz=c.timezone?c.timezone.split('/').pop().replace(/_/g,' '):'';return'<div class="child-card"><div class="child-avatar">'+initial(c.name)+'</div><div><div class="child-name">'+c.name+'</div><div class="child-meta"><span class="child-tag">🎂 Age '+c.age+'</span><span class="child-tag">🌙 '+formatTime(c.delivery_time)+' '+tz+'</span>'+(c.educational_focus?'<span class="child-tag">📚 '+c.educational_focus+'</span>':'')+'</div>'+(interests?'<div class="child-interests">'+interests+'</div>':'')+'</div></div>';}).join('');}
+async function loadAccount(){try{var res=await fetch(API+'/api/ps/account',{credentials:'include'});if(res.status===401){showLoginWall();return;}if(!res.ok)throw new Error();var data=await res.json();renderAccount(data);}catch(e){showLoginWall();}}
+function renderAccount(data){var sub=data.subscriber,children=data.children||[];document.getElementById('loading-state').style.display='none';document.getElementById('account-view').style.display='block';document.getElementById('nav-email').textContent=sub.email;document.getElementById('account-email').textContent=sub.email;document.getElementById('info-plan').textContent=planLabel(sub.plan_tier);document.getElementById('info-status').innerHTML=statusBadge(sub.status);if(sub.trial_ends_at){document.getElementById('info-date-label').textContent=sub.status==='trialing'?'Trial ends':'Billing date';document.getElementById('info-date').textContent=formatDate(sub.trial_ends_at);}if(sub.status==='trialing')showTrialNotice(sub.trial_ends_at);renderChildren(children);if(sub.status==='canceled')document.getElementById('cancel-card').style.display='none';}
+function showLoginWall(){document.getElementById('loading-state').style.display='none';document.getElementById('login-wall').style.display='block';}
+async function sendLoginLink(){var email=document.getElementById('login-email').value.trim(),btn=document.getElementById('login-btn'),s=document.getElementById('login-success'),e=document.getElementById('login-error');s.style.display='none';e.style.display='none';if(!email)return;btn.disabled=true;btn.textContent='Sending\u2026';try{var res=await fetch(API+'/api/ps/send-login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});if(res.ok){s.style.display='block';btn.textContent='Sent!';}else throw new Error();}catch{e.style.display='block';btn.disabled=false;btn.textContent='Send login link';}}
+document.getElementById('login-email').addEventListener('keydown',function(ev){if(ev.key==='Enter')sendLoginLink();});
+function showCancelConfirm(){document.getElementById('cancel-confirm').style.display='block';document.getElementById('btn-cancel-show').style.display='none';}
+function hideCancelConfirm(){document.getElementById('cancel-confirm').style.display='none';document.getElementById('btn-cancel-show').style.display='inline-flex';}
+async function confirmCancel(){var btn=document.getElementById('btn-confirm-cancel'),s=document.getElementById('cancel-success'),e=document.getElementById('cancel-error');btn.disabled=true;btn.textContent='Cancelling\u2026';try{var res=await fetch(API+'/api/ps/cancel',{method:'POST',credentials:'include'});if(res.ok){document.getElementById('cancel-confirm').style.display='none';s.style.display='block';document.getElementById('info-status').innerHTML=statusBadge('canceled');document.getElementById('btn-cancel-show').style.display='none';}else throw new Error();}catch{e.style.display='block';btn.disabled=false;btn.textContent='Yes, cancel';}}
+loadAccount();
+</script>
 </body>
 </html>

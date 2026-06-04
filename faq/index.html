@@ -9,30 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/paideia.css">
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"/></noscript>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --parchment:#fdf8f2;--parchment2:#f7f0e6;
-  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
-  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
-  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
-.nav-cta{background:var(--brown);color:var(--cream);border:none;padding:.55rem 1.3rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s}
-.nav-cta:hover{background:var(--brown-mid)}
-
-/* PAGE */
 .page{max-width:680px;margin:0 auto;padding:4rem 2rem 5rem}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.3rem .9rem;margin-bottom:1rem}
+.page-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);border-radius:100px;padding:.3rem .9rem;margin-bottom:1rem}
 .page-title{font-family:'Lora',serif;font-size:2.2rem;font-weight:700;color:var(--brown);letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem}
 .page-sub{font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:3rem}
-
-/* FAQ */
 .faq-section{margin-bottom:2.5rem}
 .faq-section-title{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brown-light);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
 .faq-item{border-bottom:1px solid var(--border)}
@@ -45,56 +29,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop
 .faq-answer a{color:var(--brown-mid);text-decoration:none;font-weight:500}
 .faq-answer a:hover{text-decoration:underline}
 .faq-answer strong{color:var(--brown);font-weight:600}
-
-/* CTA */
 .cta-card{background:var(--brown);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;margin-top:3rem}
 .cta-card h2{font-family:'Lora',serif;font-size:1.5rem;font-weight:700;color:var(--cream);margin-bottom:.65rem;letter-spacing:-.01em}
 .cta-card p{font-size:.88rem;color:rgba(249,240,227,.7);line-height:1.65;margin-bottom:1.5rem}
-.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.8rem 1.6rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:background .15s}
-.btn-primary-light:hover{background:var(--parchment2)}
 .cta-note{font-size:.75rem;color:rgba(249,240,227,.45);margin-top:.75rem}
-
-/* FOOTER */
-footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-top:1px solid #f0e8d8}
-
-@media(max-width:600px){
-  nav{padding:0 1.25rem}
-  .page{padding:2.5rem 1.25rem 4rem}
-}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .15s}
-.nav-links a:hover{color:var(--brown)}
-.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
-footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-footer p{font-size:.78rem;color:var(--faint)}
-.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
-.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
-.cta-section h2 em{font-style:italic;color:var(--brown-light)}
-.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
-.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
-.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+@media(max-width:600px){.page{padding:2.5rem 1.25rem 4rem}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1517837789692750');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
   <a href="/" class="nav-logo">Παιδεία Stories</a>
   <ul class="nav-links">
     <li><a href="/#why">Why it works</a></li>
@@ -106,244 +50,144 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
     <li><a href="/login/">Sign In</a></li>
   </ul>
   <a href="/start/" class="nav-cta">Start Free Trial →</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/#why">Why it works</a>
+  <a href="/#arc">The Arc</a>
+  <a href="/#ages">Age tiers</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/sample/">Sample story</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/login/">Sign In</a>
+  <a href="/start/" class="nav-cta-mobile">Start Free Trial →</a>
+</div>
+<script src="/js/nav.js"></script>
 
 <div class="page">
-  <div class="eyebrow">✦ Frequently asked questions</div>
+  <div class="page-eyebrow">✦ Frequently asked questions</div>
   <h1 class="page-title">Questions &amp; Answers</h1>
   <p class="page-sub">Everything you need to know before you start. Can't find your answer? Email us at <a href="mailto:stories@paideiastories.com" style="color:var(--brown-mid);font-weight:500">stories@paideiastories.com</a>.</p>
 
-  <!-- HOW IT WORKS -->
   <div class="faq-section">
     <div class="faq-section-title">How it works</div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        What exactly is Paideia Stories?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Paideia Stories generates a unique, illustrated bedtime story personalized to your child every night — and delivers it directly to your email inbox at the time you choose. No app to open. No subscription box to manage. Just a story waiting for you at bedtime, ready to read aloud.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">What exactly is Paideia Stories?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Paideia Stories generates a unique, illustrated bedtime story personalized to your child every night — and delivers it directly to your email inbox at the time you choose. No app to open. No subscription box to manage. Just a story waiting for you at bedtime, ready to read aloud.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        How is each story personalized?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        When you set up your child's profile, you tell us their name, age, appearance (hair, eyes, skin tone), interests, any themes to avoid, and their educational focus. Every story is generated fresh using this profile — your child appears as the central character, the story reflects their interests, and the vocabulary and complexity match their age tier. No two children receive the same story.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">How is each story personalized?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">When you set up your child's profile, you tell us their name, age, appearance (hair, eyes, skin tone), interests, any themes to avoid, and their educational focus. Every story is generated fresh using this profile — your child appears as the central character, the story reflects their interests, and the vocabulary and complexity match their age tier. No two children receive the same story.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Are the illustrations actually of my child?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Each story includes illustrated scenes generated to match your child's physical description — their hair color and style, eye color, skin tone, and gender. The character won't be a photograph of your child, but a warm, storybook-style illustration of a character that looks like them. Many parents tell us their children immediately recognize "themselves" in the images.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">Are the illustrations actually of my child?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Each story includes illustrated scenes generated to match your child's physical description — their hair color and style, eye color, skin tone, and gender. The character won't be a photograph of your child, but a warm, storybook-style illustration of a character that looks like them. Many parents tell us their children immediately recognize "themselves" in the images.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        How many stories does my child get?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        One new story every night — 365 per year. Each story is generated fresh and unique. Your child will never receive a repeat.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">How many stories does my child get?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">One new story every night — 365 per year. Each story is generated fresh and unique. Your child will never receive a repeat.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        What time do stories arrive?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        You choose the delivery time during setup — for example, 7:00 PM or 7:30 PM in your local timezone. The story arrives in your inbox at that time, ready to read at bedtime. You can update your delivery time from your account page at any time.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">What time do stories arrive?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">You choose the delivery time during setup — for example, 7:00 PM or 7:30 PM in your local timezone. The story arrives in your inbox at that time, ready to read at bedtime. You can update your delivery time from your account page at any time.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Can I see a sample story before I subscribe?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Yes — we have a <a href="/sample/">full sample story</a> you can read right now. It shows the exact format, illustration style, vocabulary section, and moral that arrive in your inbox every night.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">Can I see a sample story before I subscribe?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Yes — we have a <a href="/sample/">full sample story</a> you can read right now. It shows the exact format, illustration style, vocabulary section, and moral that arrive in your inbox every night.</div>
     </div>
   </div>
 
-  <!-- AGES + PLANS -->
   <div class="faq-section">
     <div class="faq-section-title">Ages &amp; plans</div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        What ages do you support?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        We support children from birth through age 10, across four tiers:<br><br>
+      <button class="faq-question" onclick="toggle(this)">What ages do you support?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">We support children from birth through age 10, across four tiers:<br><br>
         <strong>Dreamlings (0–2):</strong> Short, rhythmic, soothing — ~75 words, 6 illustrated scenes.<br>
         <strong>Sprouts (3–5):</strong> Warm and playful — ~250 words, 5 scenes, 2–3 new vocabulary words.<br>
         <strong>Readers (6–8):</strong> Classic storybook arc — ~500 words, 4 scenes, richer vocabulary.<br>
-        <strong>Explorers (9–10):</strong> Sophisticated narratives — ~800 words, 3 scenes, complex vocabulary introduced naturally.
-      </div>
+        <strong>Explorers (9–10):</strong> Sophisticated narratives — ~800 words, 3 scenes, complex vocabulary introduced naturally.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        What's the difference between Single and Family plans?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        The <strong>Single plan ($14.99/month)</strong> supports one child profile. The <strong>Family plan ($24.99/month)</strong> supports up to 4 children — each with their own profile, their own story, and their own delivery time. Each child receives a completely different, personalized story every night.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">What's the difference between Single and Family plans?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">The <strong>Single plan ($14.99/month)</strong> supports one child profile. The <strong>Family plan ($24.99/month)</strong> supports up to 4 children — each with their own profile, their own story, and their own delivery time. Each child receives a completely different, personalized story every night.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Can I add more children later?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Yes. If you start on the Single plan, you can upgrade to the Family plan at any time to add up to 3 more children. Contact us at <a href="mailto:stories@paideiastories.com">stories@paideiastories.com</a> to upgrade your plan.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">Can I add more children later?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Yes. If you start on the Single plan, you can upgrade to the Family plan at any time to add up to 3 more children. Contact us at <a href="mailto:stories@paideiastories.com">stories@paideiastories.com</a> to upgrade your plan.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Do you offer annual pricing?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Yes. Annual plans save you about two months compared to monthly:<br><br>
+      <button class="faq-question" onclick="toggle(this)">Do you offer annual pricing?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Yes. Annual plans save you about two months compared to monthly:<br><br>
         <strong>Annual Single:</strong> $149/year (vs $180 monthly) — save $31.<br>
         <strong>Annual Family:</strong> $249/year (vs $300 monthly) — save $51.<br><br>
-        You can choose annual or monthly when you start your free trial.
-      </div>
+        You can choose annual or monthly when you start your free trial.</div>
     </div>
   </div>
 
-  <!-- TRIAL + BILLING -->
   <div class="faq-section">
     <div class="faq-section-title">Trial &amp; billing</div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        How does the free trial work?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        You get 7 days completely free. Your first story arrives tonight. We ask for a payment method upfront to start the trial, but <strong>you will not be charged until day 8</strong>. You can cancel any time during the trial at no cost.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">How does the free trial work?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">You get 7 days completely free. Your first story arrives tonight. We ask for a payment method upfront to start the trial, but <strong>you will not be charged until day 8</strong>. You can cancel any time during the trial at no cost.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        What happens when the trial ends?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        After 7 days, your plan renews automatically and your card is charged. Stories continue uninterrupted. You'll receive an email reminder before the trial ends.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">What happens when the trial ends?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">After 7 days, your plan renews automatically and your card is charged. Stories continue uninterrupted. You'll receive an email reminder before the trial ends.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        How do I cancel?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        You can cancel any time from your <a href="/account/">account page</a> — no phone calls, no forms. Stories continue until the end of your current billing period. We do not offer refunds for partial periods already paid.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">How do I cancel?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">You can cancel any time from your <a href="/account/">account page</a> — no phone calls, no forms. Stories continue until the end of your current billing period. We do not offer refunds for partial periods already paid.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Is my payment information secure?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Yes. All payments are processed by Stripe, a PCI-compliant payment processor used by millions of businesses. We never store your card details.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">Is my payment information secure?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Yes. All payments are processed by Stripe, a PCI-compliant payment processor used by millions of businesses. We never store your card details.</div>
     </div>
   </div>
 
-  <!-- PRIVACY + SAFETY -->
   <div class="faq-section">
     <div class="faq-section-title">Privacy &amp; safety</div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        How do you use my child's information?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Your child's profile information (name, age, appearance, interests) is used only to generate their personalized stories. We do not sell it, share it with advertisers, or use it for any other purpose. You can read our full <a href="/privacy/">Privacy Policy</a> for details.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">How do you use my child's information?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Your child's profile information (name, age, appearance, interests) is used only to generate their personalized stories. We do not sell it, share it with advertisers, or use it for any other purpose. You can read our full <a href="/privacy/">Privacy Policy</a> for details.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Are the stories safe and age-appropriate?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Yes. Every story is generated with strict content guidelines — no violence, no scary themes, no inappropriate content. You can also specify themes to avoid in your child's profile (for example, "no spiders" or "no loud noises"). Stories are calibrated to your child's exact age tier.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">Are the stories safe and age-appropriate?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Yes. Every story is generated with strict content guidelines — no violence, no scary themes, no inappropriate content. You can also specify themes to avoid in your child's profile (for example, "no spiders" or "no loud noises"). Stories are calibrated to your child's exact age tier.</div>
     </div>
-
     <div class="faq-item">
-      <button class="faq-question" onclick="toggle(this)">
-        Can I delete my child's data?
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-        Yes. Email us at <a href="mailto:stories@paideiastories.com">stories@paideiastories.com</a> and we will delete your child's profile and all associated story history within 30 days.
-      </div>
+      <button class="faq-question" onclick="toggle(this)">Can I delete my child's data?<span class="faq-icon">+</span></button>
+      <div class="faq-answer">Yes. Email us at <a href="mailto:stories@paideiastories.com">stories@paideiastories.com</a> and we will delete your child's profile and all associated story history within 30 days.</div>
     </div>
   </div>
 
-  <!-- CTA -->
   <div class="cta-card">
     <h2>Ready to try it tonight?</h2>
     <p>7-day free trial. First story arrives tonight. Set up takes 3 minutes.</p>
     <a href="/start/" class="btn-primary-light">Start Your Free Trial →</a>
     <div class="cta-note">No charge for 7 days · Cancel anytime</div>
   </div>
-
 </div>
 
 <section class="cta-section">
   <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
-  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
+  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world.</p>
   <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
 </section>
 
-<footer>
+<footer class="site-footer">
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>
-    <a href="/about/" style="color:inherit;text-decoration:none">About</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
-  </p>
+  <p><a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a><span style="margin:0 .5rem">·</span><a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a></p>
   <p>© 2026 VenturePipeline LLC · paideiastories.com</p>
 </footer>
 
 <script>
-function toggle(btn) {
-  const item = btn.closest('.faq-item');
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
+function toggle(btn){
+  var item = btn.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(el){el.classList.remove('open')});
+  if(!wasOpen) item.classList.add('open');
 }
 </script>
 </body>

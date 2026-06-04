@@ -8,90 +8,66 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/paideia.css">
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"/></noscript>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --parchment:#fdf8f2;--parchment2:#f7f0e6;
-  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
-  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
-  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
-
+body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem}
 .wrap{max-width:520px;width:100%;text-align:center}
-
 .icon{font-size:3rem;margin-bottom:1.5rem;display:block}
 .heading{font-family:'Lora',serif;font-size:1.9rem;font-weight:700;color:var(--brown);letter-spacing:-.02em;line-height:1.2;margin-bottom:.75rem}
 .sub{font-size:.95rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem}
-
 .info-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem 2rem;margin-bottom:2rem;text-align:left;position:relative;overflow:hidden}
 .info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-light))}
 .info-card h3{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);margin-bottom:1rem}
 .info-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
 .info-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.88rem;color:var(--muted);line-height:1.55}
 .info-list li::before{content:'✓';color:var(--brown-light);font-weight:700;flex-shrink:0;margin-top:.05rem}
-
 .actions{display:flex;flex-direction:column;gap:.875rem;align-items:center}
-.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--brown);color:var(--cream);border:none;padding:.8rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;text-decoration:none;transition:background .15s;width:100%;justify-content:center}
-.btn-primary:hover{background:var(--brown-mid)}
-.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--muted);border:1px solid var(--border);padding:.75rem 1.5rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;text-decoration:none;transition:border-color .15s,color .15s;width:100%;justify-content:center}
-.btn-ghost:hover{border-color:var(--brown-light);color:var(--brown)}
-
+.actions .btn-primary{width:100%;justify-content:center}
+.actions .btn-ghost{width:100%;justify-content:center}
 .feedback{margin-top:2rem;font-size:.82rem;color:var(--faint);line-height:1.6}
 .feedback a{color:var(--brown-mid);text-decoration:none;font-weight:500}
 .feedback a:hover{text-decoration:underline}
-
-footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-top:1px solid #f0e8d8}
-
-@media(max-width:600px){
-  nav{padding:0 1.25rem}
-  main{padding:2rem 1rem;align-items:flex-start;padding-top:3rem}
-}
-.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
-footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-footer p{font-size:.78rem;color:var(--faint)}
-.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
-.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
-.cta-section h2 em{font-style:italic;color:var(--brown-light)}
-.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
-.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
-.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+@media(max-width:600px){main{padding:2rem 1rem;align-items:flex-start;padding-top:3rem}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1517837789692750');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
   <a href="/" class="nav-logo">Παιδεία Stories</a>
+  <ul class="nav-links">
+    <li><a href="/#why">Why it works</a></li>
+    <li><a href="/#arc">The Arc</a></li>
+    <li><a href="/#ages">Age tiers</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/sample/">Sample story</a></li>
+    <li><a href="/faq/">FAQ</a></li>
+    <li><a href="/login/">Sign In</a></li>
+  </ul>
+  <a href="/start/" class="nav-cta">Start Free Trial →</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/#why">Why it works</a>
+  <a href="/#arc">The Arc</a>
+  <a href="/#ages">Age tiers</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/sample/">Sample story</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/login/">Sign In</a>
+  <a href="/start/" class="nav-cta-mobile">Start Free Trial →</a>
+</div>
+<script src="/js/nav.js"></script>
 
 <main>
   <div class="wrap">
     <span class="icon">📖</span>
     <h1 class="heading">Your subscription has been cancelled</h1>
     <p class="sub">We're sorry to see you go. Your stories will continue until the end of your current billing period — after that, no further charges will be made.</p>
-
     <div class="info-card">
       <h3>What happens next</h3>
       <ul class="info-list">
@@ -101,12 +77,10 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
         <li>To delete your data, email us at <a href="mailto:stories@paideiastories.com" style="color:var(--brown-mid);font-weight:500">stories@paideiastories.com</a></li>
       </ul>
     </div>
-
     <div class="actions">
       <a href="/start/" class="btn-primary">Resubscribe — Start a new free trial →</a>
       <a href="/" class="btn-ghost">Return to homepage</a>
     </div>
-
     <div class="feedback">
       Changed your mind about something specific?<br>
       We'd love to hear what we could do better —
@@ -117,21 +91,14 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
 
 <section class="cta-section">
   <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
-  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
+  <p>A personalized 30-chapter adventure, delivered one chapter at a time.</p>
   <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
 </section>
 
-<footer>
+<footer class="site-footer">
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>
-    <a href="/about/" style="color:inherit;text-decoration:none">About</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
-  </p>
+  <p><a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a><span style="margin:0 .5rem">·</span><a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a></p>
   <p>© 2026 VenturePipeline LLC · paideiastories.com</p>
 </footer>
-
 </body>
 </html>

@@ -8,100 +8,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/paideia.css">
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"/></noscript>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --parchment:#fdf8f2;--parchment2:#f7f0e6;
-  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
-  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
-  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
-  --green:#3a6b4a;--green-bg:rgba(58,107,74,.08);--green-border:rgba(58,107,74,.25);
-  --red:#8b2c2c;--red-bg:rgba(139,44,44,.07);--red-border:rgba(139,44,44,.2);
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none;display:flex;align-items:center;gap:.5rem}
-.nav-logo span{opacity:.55;font-weight:400}
-
-/* MAIN */
+body{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem}
-
-/* LOGIN CARD */
 .login-wrap{width:100%;max-width:440px;text-align:center}
 .login-icon{font-size:2.75rem;margin-bottom:1.25rem;display:block}
 .login-heading{font-family:'Lora',serif;font-size:1.75rem;font-weight:700;color:var(--brown);margin-bottom:.65rem;letter-spacing:-.02em;line-height:1.2}
 .login-sub{font-size:.92rem;color:var(--muted);line-height:1.7;margin-bottom:2rem}
 .login-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;box-shadow:0 4px 24px rgba(91,70,54,.08);position:relative;overflow:hidden}
 .login-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--brown-light))}
-
-/* FORM */
 .login-input{width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;color:var(--text);background:var(--parchment);margin-bottom:.75rem;outline:none;transition:border-color .15s}
 .login-input:focus{border-color:var(--brown-light)}
 .login-input.invalid{border-color:var(--red)}
-.btn-primary{width:100%;padding:.8rem;background:var(--brown);color:var(--cream);border:none;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .15s}
-.btn-primary:hover{background:var(--brown-mid)}
-.btn-primary:disabled{opacity:.5;cursor:not-allowed}
-
-/* MESSAGES */
-.msg{display:none;padding:.75rem 1rem;border-radius:var(--radius);font-size:.85rem;margin-top:.75rem;line-height:1.55;text-align:left}
-.msg-success{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border)}
-.msg-error{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border)}
-
-/* VERIFYING STATE */
+.btn-login{width:100%;padding:.8rem;background:var(--brown);color:var(--cream);border:none;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .15s}
+.btn-login:hover{background:var(--brown-mid)}
+.btn-login:disabled{opacity:.5;cursor:not-allowed}
 .verifying{text-align:center;padding:1.5rem 0}
 .verifying-spinner{width:36px;height:36px;border:3px solid var(--parchment2);border-top-color:var(--brown);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem}
 @keyframes spin{to{transform:rotate(360deg)}}
 .verifying-text{font-size:.92rem;color:var(--muted)}
-
-/* SIGN UP LINK */
 .signup-link{margin-top:1.5rem;font-size:.83rem;color:var(--faint)}
 .signup-link a{color:var(--brown-mid);text-decoration:none;font-weight:600}
 .signup-link a:hover{text-decoration:underline}
-
-/* FOOTER */
-footer{text-align:center;padding:1.5rem 1rem;font-size:0.8rem;color:#999;border-top:1px solid #f0e8d8}
-
-@media(max-width:600px){
-  nav{padding:0 1.25rem}
-  main{padding:2rem 1rem;align-items:flex-start;padding-top:3rem}
-}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .15s}
-.nav-links a:hover{color:var(--brown)}
-.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
-footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-footer p{font-size:.78rem;color:var(--faint)}
-.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
-.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
-.cta-section h2 em{font-style:italic;color:var(--brown-light)}
-.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
-.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
-.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+@media(max-width:600px){main{padding:2rem 1rem;align-items:flex-start;padding-top:3rem}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1517837789692750');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
   <a href="/" class="nav-logo">Παιδεία Stories</a>
   <ul class="nav-links">
     <li><a href="/#why">Why it works</a></li>
@@ -113,7 +50,21 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
     <li><a href="/login/">Sign In</a></li>
   </ul>
   <a href="/start/" class="nav-cta">Start Free Trial →</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/#why">Why it works</a>
+  <a href="/#arc">The Arc</a>
+  <a href="/#ages">Age tiers</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/sample/">Sample story</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/login/">Sign In</a>
+  <a href="/start/" class="nav-cta-mobile">Start Free Trial →</a>
+</div>
+<script src="/js/nav.js"></script>
 
 <main>
   <div class="login-wrap" id="login-wrap">
@@ -122,25 +73,20 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
     <p class="login-sub">Enter your email and we'll send you a magic link — no password needed.</p>
     <div class="login-card">
       <input type="email" class="login-input" id="login-email" placeholder="your@email.com" autocomplete="email">
-      <button class="btn-primary" id="login-btn" onclick="sendLoginLink()">Send magic link</button>
-      <div class="msg msg-success" id="login-success">
-        ✓ Check your inbox — your magic link is on the way. You can close this tab.
-      </div>
+      <button class="btn-login" id="login-btn" onclick="sendLoginLink()">Send magic link</button>
+      <div class="msg msg-success" id="login-success">✓ Check your inbox — your magic link is on the way. You can close this tab.</div>
       <div class="msg msg-error" id="login-error">Something went wrong. Please try again.</div>
     </div>
     <p class="signup-link">Don't have an account? <a href="/start/">Start your free trial →</a></p>
   </div>
 
-  <!-- Shown when verifying a token from the URL -->
   <div class="login-wrap" id="verify-wrap" style="display:none">
     <div class="login-card">
       <div class="verifying" id="verifying-state">
         <div class="verifying-spinner"></div>
         <p class="verifying-text">Signing you in…</p>
       </div>
-      <div class="msg msg-success" id="verify-success" style="display:none;text-align:center;padding:1rem">
-        ✓ You're signed in! Redirecting to your account…
-      </div>
+      <div class="msg msg-success" id="verify-success" style="display:none;text-align:center;padding:1rem">✓ You're signed in! Redirecting to your account…</div>
       <div class="msg msg-error" id="verify-error" style="display:none;text-align:center;padding:1rem">
         This link has expired or already been used.<br><br>
         <a href="/login/" style="color:var(--red);font-weight:600">Request a new link →</a>
@@ -151,93 +97,52 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
 
 <section class="cta-section">
   <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
-  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
+  <p>A personalized 30-chapter adventure, delivered one chapter at a time.</p>
   <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
 </section>
 
-<footer>
+<footer class="site-footer">
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>
-    <a href="/about/" style="color:inherit;text-decoration:none">About</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
-  </p>
+  <p><a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a><span style="margin:0 .5rem">·</span><a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a></p>
   <p>© 2026 VenturePipeline LLC · paideiastories.com</p>
 </footer>
 
 <script>
 const API = 'https://api.paideiastories.com';
-
-// Check for token in URL — handle magic link click
 const params = new URLSearchParams(window.location.search);
 const token = params.get('token');
 const error = params.get('error');
 
-if (token) {
-  document.getElementById('login-wrap').style.display = 'none';
-  document.getElementById('verify-wrap').style.display = 'block';
-  verifyToken(token);
-} else if (error) {
-  // Redirected back from API with an error (expired/invalid token)
-  document.getElementById('login-wrap').style.display = 'none';
-  document.getElementById('verify-wrap').style.display = 'block';
-  document.getElementById('verifying-state').style.display = 'none';
-  document.getElementById('verify-error').style.display = 'block';
-} else {
+if(token){
+  document.getElementById('login-wrap').style.display='none';
+  document.getElementById('verify-wrap').style.display='block';
+  window.location.href=`${API}/api/ps/verify-login?token=${encodeURIComponent(token)}`;
+}else if(error){
+  document.getElementById('login-wrap').style.display='none';
+  document.getElementById('verify-wrap').style.display='block';
+  document.getElementById('verifying-state').style.display='none';
+  document.getElementById('verify-error').style.display='block';
+}else{
   document.getElementById('login-email').focus();
 }
 
-function verifyToken(token) {
-  // The verify-login endpoint is a GET that sets the session cookie and redirects.
-  // Hand off directly — the API will redirect to /account on success,
-  // or to /login?error=invalid_token on failure.
-  window.location.href = `${API}/api/ps/verify-login?token=${encodeURIComponent(token)}`;
-}
-
-async function sendLoginLink() {
-  const emailEl = document.getElementById('login-email');
-  const btn = document.getElementById('login-btn');
-  const success = document.getElementById('login-success');
-  const error = document.getElementById('login-error');
-  success.style.display = 'none';
-  error.style.display = 'none';
+async function sendLoginLink(){
+  var emailEl=document.getElementById('login-email');
+  var btn=document.getElementById('login-btn');
+  var success=document.getElementById('login-success');
+  var err=document.getElementById('login-error');
+  success.style.display='none'; err.style.display='none';
   emailEl.classList.remove('invalid');
-
-  const email = emailEl.value.trim();
-  if (!email || !email.includes('@')) {
-    emailEl.classList.add('invalid');
-    emailEl.focus();
-    return;
-  }
-
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  try {
-    const res = await fetch(`${API}/api/ps/send-login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
-    });
-    if (res.ok) {
-      success.style.display = 'block';
-      btn.textContent = 'Sent!';
-      emailEl.style.display = 'none';
-    } else {
-      throw new Error();
-    }
-  } catch {
-    error.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Send magic link';
-  }
+  var email=emailEl.value.trim();
+  if(!email||!email.includes('@')){emailEl.classList.add('invalid');emailEl.focus();return;}
+  btn.disabled=true; btn.textContent='Sending\u2026';
+  try{
+    var res=await fetch(`${API}/api/ps/send-login`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
+    if(res.ok){success.style.display='block';btn.textContent='Sent!';emailEl.style.display='none';}
+    else throw new Error();
+  }catch{err.style.display='block';btn.disabled=false;btn.textContent='Send magic link';}
 }
-
-document.getElementById('login-email').addEventListener('keydown', e => {
-  if (e.key === 'Enter') sendLoginLink();
-});
+document.getElementById('login-email').addEventListener('keydown',function(e){if(e.key==='Enter')sendLoginLink();});
 </script>
 </body>
 </html>
