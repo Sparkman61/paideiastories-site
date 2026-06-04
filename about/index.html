@@ -8,23 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/paideia.css">
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"/></noscript>
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --parchment:#fdf8f2;--parchment2:#f7f0e6;
-  --brown:#5b4636;--brown-mid:#7a5c42;--brown-light:#c8a97e;
-  --cream:#f9f0e3;--text:#2d2013;--muted:#7a6a58;--faint:#a89880;
-  --border:rgba(91,70,54,0.12);--radius:10px;--radius-lg:16px;--radius-xl:24px;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
-nav{position:sticky;top:0;z-index:100;background:rgba(253,248,242,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:var(--brown);text-decoration:none}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .15s}
-.nav-links a:hover{color:var(--brown)}
-.nav-cta{background:var(--brown);color:var(--cream);border:none;padding:.55rem 1.3rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.875rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s,transform .1s}
-.nav-cta:hover{background:var(--brown-mid);transform:translateY(-1px)}
 .page{max-width:720px;margin:0 auto;padding:4rem 2rem 6rem}
 .page-eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);margin-bottom:1rem}
 .page-title{font-family:'Lora',serif;font-size:2.2rem;font-weight:700;letter-spacing:-.02em;color:var(--brown);line-height:1.2;margin-bottom:1.5rem}
@@ -37,41 +24,12 @@ p{color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
 .contact-card h2{margin-top:0}
 .contact-card a{color:var(--brown-mid);text-decoration:none;font-weight:600}
 .contact-card a:hover{text-decoration:underline}
-footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
-footer p{font-size:.78rem;color:var(--faint)}
-@media(max-width:600px){nav{padding:0 1.25rem}.nav-links{display:none}.page{padding:2.5rem 1.25rem 4rem}footer{padding:1.5rem 1.25rem}}
-.footer-logo{font-family:'Lora',serif;font-size:1rem;font-weight:700;color:var(--brown);text-decoration:none}
-footer{border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-footer p{font-size:.78rem;color:var(--faint)}
-.cta-section{background:var(--brown);padding:6rem 3rem;text-align:center}
-.cta-section h2{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--cream);margin-bottom:1rem}
-.cta-section h2 em{font-style:italic;color:var(--brown-light)}
-.cta-section p{color:rgba(249,240,227,.7);font-size:1rem;max-width:440px;margin:0 auto 2rem;line-height:1.7}
-.btn-primary-light{display:inline-flex;align-items:center;gap:.5rem;background:var(--cream);color:var(--brown);border:none;padding:.875rem 1.75rem;border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;text-decoration:none;transition:background .15s,transform .1s;cursor:pointer}
-.btn-primary-light:hover{background:var(--parchment2);transform:translateY(-1px)}
+@media(max-width:600px){.page{padding:2.5rem 1.25rem 4rem}}
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1517837789692750');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
   <a href="/" class="nav-logo">Παιδεία Stories</a>
   <ul class="nav-links">
     <li><a href="/#why">Why it works</a></li>
@@ -83,7 +41,21 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
     <li><a href="/login/">Sign In</a></li>
   </ul>
   <a href="/start/" class="nav-cta">Start Free Trial →</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="/#why">Why it works</a>
+  <a href="/#arc">The Arc</a>
+  <a href="/#ages">Age tiers</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/sample/">Sample story</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/login/">Sign In</a>
+  <a href="/start/" class="nav-cta-mobile">Start Free Trial →</a>
+</div>
+<script src="/js/nav.js"></script>
 
 <div class="page">
   <div class="page-eyebrow">About</div>
@@ -98,51 +70,38 @@ src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"
   <hr class="divider">
 
   <h2>Why Παιδεία?</h2>
-
   <p>Paideia (py-DAY-ah) is an Ancient Greek concept describing the holistic education of a child — not just academic knowledge, but the development of character, values, and wisdom through story, habit, and guided experience. It was the foundation of classical education for over a thousand years.</p>
-
   <p>We chose this name because it captures exactly what a good bedtime story does. It isn't entertainment for its own sake. It's a nightly ritual that shapes how your child understands the world, themselves, and what it means to be good.</p>
 
   <hr class="divider">
 
   <h2>How the stories are made</h2>
-
   <p>When you sign up, you tell us about your child — their name, age, appearance, interests, and a few things to avoid. We use that profile to generate a personalized 30-chapter story arc: a complete adventure with a consistent world, recurring characters, and an overarching quest that resolves at chapter 30.</p>
-
   <p>Each night, the next chapter is written fresh — calibrated to your child's age tier, illustrated with watercolor-style scenes, and delivered to your inbox at bedtime. Every story includes a moral and vocabulary words appropriate for their age. At chapter 30, a new arc begins automatically.</p>
-
   <p>Stories are generated using AI language and image models, with every output reviewed against quality and safety standards. No story is ever re-used — every child's arc is unique.</p>
 
   <hr class="divider">
 
   <h2>Who we are</h2>
-
   <p>Paideia Stories is a product of VenturePipeline LLC, a Maryland company that builds autonomous digital products. We are a small team that believes good software should do the hard work so people can focus on what matters.</p>
 
   <div class="contact-card">
     <h2>Get in touch</h2>
     <p>Questions, feedback, or just want to share how bedtime is going? We'd love to hear from you.</p>
-    <p><a href="mailto:info@paideiastories.com">info@paideiastories.com</a></p>
+    <p><a href="mailto:stories@paideiastories.com">stories@paideiastories.com</a></p>
   </div>
 </div>
 
 <section class="cta-section">
   <h2>The bedtime habit your child<br><em>will thank you for.</em></h2>
-  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world. The ritual that builds readers, one cliffhanger at a time.</p>
+  <p>A personalized 30-chapter adventure, delivered one chapter at a time — with their name, their face, their world.</p>
   <a href="/start/" class="btn-primary-light">Start Your Free 7-Day Trial →</a>
 </section>
 
-<footer>
+<footer class="site-footer">
   <a href="/" class="footer-logo">Παιδεία Stories</a>
-  <p>
-    <a href="/about/" style="color:inherit;text-decoration:none">About</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a>
-    <span style="margin:0 0.5rem">·</span>
-    <a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a>
-  </p>
+  <p><a href="/about/" style="color:inherit;text-decoration:none">About</a><span style="margin:0 .5rem">·</span><a href="/privacy/" style="color:inherit;text-decoration:none">Privacy Policy</a><span style="margin:0 .5rem">·</span><a href="/terms/" style="color:inherit;text-decoration:none">Terms of Service</a></p>
   <p>© 2026 VenturePipeline LLC · paideiastories.com</p>
 </footer>
-
 </body>
 </html>
