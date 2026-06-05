@@ -176,6 +176,10 @@ body{min-height:100vh}
 </footer>
 
 <script>
+// Fire StartTrial when someone lands on this page — reaching /start/profile means Stripe checkout completed
+if(window.location.search.includes('session_id=')){
+  fbq('track','StartTrial');
+}
 var API='https://api.paideiastories.com';
 var interests=[],avoidThemes=[];
 function makeTagInput(wrapId,inputId,arr){
