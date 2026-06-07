@@ -220,10 +220,28 @@ body{min-height:100vh}
 var API_BASE = 'https://api.paideiastories.com';
 
 // Client-side content filter — mirrors server blocklist
-var _BLOCKED = ['sex','porn','nude','naked','adult','erotic','xxx','kill','murder',
-  'death','suicide','rape','abuse','drugs','cocaine','heroin','meth','weed',
-  'marijuana','alcohol','beer','wine','whiskey','vodka','gun','weapon','bomb',
-  'violence','gore','racist','nazi','hate'];
+var _BLOCKED = [
+  // Sexual
+  'sex','porn','nude','naked','adult','erotic','xxx',
+  'hooker','hookers','prostitute','prostitution','escort',
+  'stripper','onlyfans','nsfw','fetish','kinky',
+  // Violence / death
+  'kill','murder','death','suicide','rape','abuse',
+  'torture','gore','violence','slaughter','massacre',
+  'molest','assault','stab','shoot','strangle',
+  // Drugs / alcohol
+  'drugs','cocaine','heroin','meth','weed','marijuana',
+  'junkie','junkies','crack','fentanyl','opioid','overdose',
+  'alcohol','beer','wine','whiskey','vodka','drunk','booze',
+  'cannabis','stoned','high','dope',
+  // Weapons
+  'gun','weapon','bomb','explosive','knife','grenade',
+  'pistol','rifle','shotgun','firearm',
+  // Hate
+  'racist','racism','nazi','hate','slur',
+  // Gambling
+  'gambling','casino','betting'
+];
 function interestsSafe(val) {
   var lower = val.toLowerCase();
   for (var i = 0; i < _BLOCKED.length; i++) {
