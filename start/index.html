@@ -13,17 +13,51 @@
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1517837789692750&ev=PageView&noscript=1"/></noscript>
 <style>
 body{min-height:100vh}
-.page-shell{max-width:1100px;margin:0 auto;padding:4rem 3rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.page-copy{position:sticky;top:96px}
-.page-title{font-family:'Lora',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--brown);margin-bottom:1rem}
-.page-title em{font-style:italic;color:var(--brown-mid)}
-.page-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:440px;margin-bottom:2rem}
-.proof-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
-.proof-item{display:flex;align-items:center;gap:.75rem;font-size:.88rem;color:var(--muted)}
-.proof-dot{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(200,169,126,.15);border:1px solid rgba(200,169,126,.4);color:var(--brown-light);flex-shrink:0;font-size:.82rem;font-weight:700}
-.panel-title{font-family:'Lora',serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;color:var(--brown)}
-.panel-sub{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:1.75rem}
-.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.75rem}
+
+/* ── Preview section ── */
+.preview-hero{max-width:680px;margin:0 auto;padding:4rem 2rem 2rem;text-align:center}
+.preview-hero .eyebrow{margin-bottom:1rem}
+.preview-hero h1{font-family:'Lora',serif;font-size:clamp(1.9rem,4vw,2.6rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--brown);margin-bottom:.75rem}
+.preview-hero h1 em{font-style:italic;color:var(--brown-mid)}
+.preview-hero p{font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto}
+
+.preview-form{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;max-width:560px;margin:0 auto 1.5rem;box-shadow:0 4px 24px rgba(91,70,54,.08)}
+.preview-fields{display:grid;grid-template-columns:1fr 1fr;gap:.875rem;margin-bottom:.875rem}
+.preview-fields .field-full{grid-column:1/-1}
+.preview-form .field label{font-size:.8rem;font-weight:600;color:var(--brown-mid);margin-bottom:.35rem;display:block;letter-spacing:.02em}
+.preview-form .field input{width:100%;box-sizing:border-box;border:1.5px solid var(--border);border-radius:var(--radius);padding:.65rem .875rem;font-size:.95rem;font-family:'Inter',sans-serif;color:var(--text);background:#fff;transition:border-color .15s}
+.preview-form .field input:focus{outline:none;border-color:var(--brown-light)}
+.preview-form .field input.invalid{border-color:#c0392b}
+.btn-generate{width:100%;padding:.875rem;font-size:1rem;font-weight:700;font-family:'Inter',sans-serif;background:var(--brown);color:var(--cream);border:none;border-radius:var(--radius);cursor:pointer;transition:background .15s,opacity .15s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-generate:hover{background:var(--brown-mid)}
+.btn-generate:disabled{opacity:.6;cursor:not-allowed}
+.preview-hint{font-size:.78rem;color:var(--faint);text-align:center;margin-top:.75rem}
+
+/* ── Generated story card ── */
+.story-reveal{max-width:560px;margin:0 auto 2rem;display:none}
+.story-reveal.visible{display:block}
+.story-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:2rem;box-shadow:0 8px 40px rgba(91,70,54,.1);position:relative;overflow:hidden}
+.story-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brown),var(--brown-light))}
+.story-card-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);margin-bottom:1rem}
+.story-text{font-family:'Lora',serif;font-size:.95rem;line-height:1.85;color:var(--text);margin-bottom:1.5rem}
+.story-cta-nudge{font-size:.88rem;color:var(--brown-mid);font-style:italic;text-align:center;padding:.875rem 1rem;background:var(--parchment2);border-radius:var(--radius);border:1px solid var(--border)}
+
+/* ── Typing cursor animation ── */
+.typing-cursor::after{content:'|';animation:blink .7s step-end infinite;color:var(--brown-light)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── Divider ── */
+.section-divider{max-width:560px;margin:0 auto 2rem;display:flex;align-items:center;gap:1rem;display:none}
+.section-divider.visible{display:flex}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-divider span{font-size:.78rem;color:var(--faint);white-space:nowrap;font-style:italic}
+
+/* ── Signup panel ── */
+.signup-panel{max-width:560px;margin:0 auto;padding:0 0 5rem;display:none}
+.signup-panel.visible{display:block}
+.panel-title{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem;color:var(--brown)}
+.panel-sub{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:1.5rem}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem}
 .plan-option{border:2px solid var(--border);border-radius:var(--radius-lg);padding:1rem;cursor:pointer;transition:border-color .15s,background .15s;position:relative}
 .plan-option:hover{border-color:var(--brown-light)}
 .plan-option.selected{border-color:var(--brown);background:rgba(91,70,54,.04)}
@@ -34,9 +68,28 @@ body{min-height:100vh}
 .plan-desc{font-size:.75rem;color:var(--muted);margin-top:.3rem}
 .plan-annual{font-size:.72rem;color:var(--brown-light);font-weight:600;margin-top:.2rem}
 .plan-badge{position:absolute;top:.6rem;right:.6rem;background:var(--brown);color:var(--cream);font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:100px;padding:.15rem .5rem}
+.signup-panel .field label{font-size:.8rem;font-weight:600;color:var(--brown-mid);margin-bottom:.35rem;display:block;letter-spacing:.02em}
+.signup-panel .field input{width:100%;box-sizing:border-box;border:1.5px solid var(--border);border-radius:var(--radius);padding:.65rem .875rem;font-size:.95rem;font-family:'Inter',sans-serif;color:var(--text);background:#fff;transition:border-color .15s}
+.signup-panel .field input:focus{outline:none;border-color:var(--brown-light)}
+.signup-panel .field input.invalid{border-color:#c0392b}
 .disclaimer{margin-top:.875rem;font-size:.74rem;color:var(--faint);text-align:center;line-height:1.55}
-@media(max-width:900px){.page-shell{grid-template-columns:1fr;padding:2.5rem 1.5rem;gap:2rem}.page-copy{position:static}}
-@media(max-width:560px){.plan-grid{grid-template-columns:1fr}}
+
+/* ── Generating spinner ── */
+.generating-msg{text-align:center;padding:2rem;color:var(--brown-mid);font-family:'Lora',serif;font-style:italic;font-size:.95rem;display:none}
+.generating-msg.visible{display:block}
+.spinner{display:inline-block;width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--brown-light);border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-right:.5rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.preview-error{color:#c0392b;font-size:.82rem;text-align:center;margin-top:.75rem;display:none}
+.preview-error.visible{display:block}
+
+@media(max-width:600px){
+  .preview-hero{padding:3rem 1.25rem 1.5rem}
+  .preview-form{padding:1.5rem}
+  .preview-fields{grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr}
+  .story-card{padding:1.5rem}
+}
 </style>
 </head>
 <body>
@@ -69,20 +122,58 @@ body{min-height:100vh}
 </div>
 <script src="/js/nav.js"></script>
 
-<main class="page-shell">
-  <div class="page-copy">
-    <div class="eyebrow">7-Day Free Trial</div>
-    <h1 class="page-title">Your child's story is<br><em>waiting to be written.</em></h1>
-    <p class="page-sub">Start your free trial and we'll deliver a unique personalized illustrated story to your inbox every single night. No charge for 7 days.</p>
-    <div class="proof-list">
-      <div class="proof-item"><span class="proof-dot">1</span> Choose your plan and enter your email below.</div>
-      <div class="proof-item"><span class="proof-dot">2</span> Complete your free trial signup via Stripe — no charge today.</div>
-      <div class="proof-item"><span class="proof-dot">3</span> Tell us about your child — name, age, interests, bedtime.</div>
-      <div class="proof-item"><span class="proof-dot">4</span> Tonight's story arrives in your inbox.</div>
+<main>
+
+  <!-- Step 1: Preview generator -->
+  <div class="preview-hero">
+    <div class="eyebrow">✦ See your child's story before you subscribe</div>
+    <h1>A new chapter of <em>their</em> story,<br>every night for 30 nights.</h1>
+    <p>Tell us about your child and we'll write the opening of their personalized adventure — right now, for free.</p>
+  </div>
+
+  <div class="preview-form" id="preview-form">
+    <div class="preview-fields">
+      <div class="field">
+        <label for="child-name">Child's first name</label>
+        <input type="text" id="child-name" placeholder="Emma" maxlength="50" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="child-age">Age</label>
+        <input type="number" id="child-age" placeholder="6" min="0" max="12" autocomplete="off">
+      </div>
+      <div class="field field-full">
+        <label for="child-interests">What do they love? <span style="font-weight:400;color:var(--faint)">(dinosaurs, space, horses, superheroes…)</span></label>
+        <input type="text" id="child-interests" placeholder="dinosaurs and space" maxlength="200" autocomplete="off">
+      </div>
+    </div>
+    <button class="btn-generate" id="generate-btn">
+      ✦ Write my child's story
+    </button>
+    <div class="preview-error" id="preview-error"></div>
+    <p class="preview-hint">Free · No account needed · Takes about 5 seconds</p>
+  </div>
+
+  <!-- Generating state -->
+  <div class="generating-msg" id="generating-msg">
+    <span class="spinner"></span>Writing <span id="generating-name"></span>'s story…
+  </div>
+
+  <!-- Step 2: Story reveal -->
+  <div class="story-reveal" id="story-reveal">
+    <div class="story-card">
+      <div class="story-card-label">✦ <span id="story-child-name"></span>'s story — Chapter 1</div>
+      <div class="story-text" id="story-text"></div>
+      <div class="story-cta-nudge">This is just the beginning. Every night for 30 nights, a new chapter arrives in your inbox.</div>
     </div>
   </div>
 
-  <div class="form-panel">
+  <!-- Divider -->
+  <div class="section-divider" id="section-divider">
+    <span>Start your free 7-day trial</span>
+  </div>
+
+  <!-- Step 3: Signup -->
+  <div class="signup-panel" id="signup-panel">
     <h2 class="panel-title">Start your free trial</h2>
     <p class="panel-sub">Choose a plan and enter your email. You'll complete signup via Stripe — no card is charged today.</p>
     <div class="plan-grid" id="plan-grid">
@@ -110,6 +201,7 @@ body{min-height:100vh}
     <button class="btn-primary" id="submit-btn" style="width:100%;justify-content:center;margin-top:1rem">Continue to Free Trial →</button>
     <p class="disclaimer">You'll be taken to Stripe to complete your free trial signup.<br>No charge for 7 days. Cancel anytime before your trial ends.</p>
   </div>
+
 </main>
 
 <section class="cta-section">
@@ -125,29 +217,163 @@ body{min-height:100vh}
 </footer>
 
 <script>
-var API_BASE='https://api.paideiastories.com';
-document.querySelectorAll('input[name=plan]').forEach(function(r){r.addEventListener('change',function(){document.querySelectorAll('.plan-option').forEach(function(el){el.classList.remove('selected')});r.closest('.plan-option').classList.add('selected');});});
-var urlPlan=new URLSearchParams(window.location.search).get('plan');
-if(urlPlan==='family'){document.querySelector('input[value=family]').checked=true;document.getElementById('label-family').classList.add('selected');document.getElementById('label-single').classList.remove('selected');}
-function showError(m){var el=document.getElementById('form-error');el.textContent=m;el.classList.add('visible');}
-function clearError(){document.getElementById('form-error').classList.remove('visible');}
-function validEmail(v){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
-document.getElementById('submit-btn').addEventListener('click',async function(){
-  clearError();
-  var email=document.getElementById('email').value.trim().toLowerCase();
-  var plan=document.querySelector('input[name=plan]:checked').value;
-  if(!email){showError('Please enter your email address.');document.getElementById('email').focus();return;}
-  if(!validEmail(email)){showError('Please enter a valid email address.');document.getElementById('email').classList.add('invalid');return;}
-  var btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Redirecting to Stripe...';
-  try{
-    var res=await fetch(API_BASE+'/api/ps/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,plan_tier:plan})});
-    var data=await res.json().catch(function(){return{};});
-    if(res.ok&&data.checkout_url){window.location.href=data.checkout_url;return;}
-    showError(data.error||'Something went wrong. Please try again.');
-  }catch(e){showError('Could not reach our servers. Please check your connection and try again.');}
-  btn.disabled=false;btn.textContent='Continue to Free Trial →';
+var API_BASE = 'https://api.paideiastories.com';
+
+// ── Plan selection ──
+document.querySelectorAll('input[name=plan]').forEach(function(r) {
+  r.addEventListener('change', function() {
+    document.querySelectorAll('.plan-option').forEach(function(el) { el.classList.remove('selected'); });
+    r.closest('.plan-option').classList.add('selected');
+  });
 });
-document.getElementById('email').addEventListener('input',function(){document.getElementById('email').classList.remove('invalid');clearError();});
+var urlPlan = new URLSearchParams(window.location.search).get('plan');
+if (urlPlan === 'family') {
+  document.querySelector('input[value=family]').checked = true;
+  document.getElementById('label-family').classList.add('selected');
+  document.getElementById('label-single').classList.remove('selected');
+}
+
+// ── Helpers ──
+function showPreviewError(m) {
+  var el = document.getElementById('preview-error');
+  el.textContent = m;
+  el.classList.add('visible');
+}
+function clearPreviewError() {
+  document.getElementById('preview-error').classList.remove('visible');
+}
+function showError(m) {
+  var el = document.getElementById('form-error');
+  el.textContent = m;
+  el.classList.add('visible');
+}
+function clearError() {
+  document.getElementById('form-error').classList.remove('visible');
+}
+function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+// Strip leading markdown heading if model includes one
+function cleanStory(text) {
+  return text.replace(/^#+\s+.+\n+/, '').trim();
+}
+
+// Typewriter effect
+function typewrite(el, text, done) {
+  el.textContent = '';
+  el.classList.add('typing-cursor');
+  var i = 0;
+  var delay = Math.max(12, Math.min(30, 3000 / text.length));
+  function step() {
+    if (i < text.length) {
+      el.textContent += text[i++];
+      setTimeout(step, delay);
+    } else {
+      el.classList.remove('typing-cursor');
+      if (done) done();
+    }
+  }
+  step();
+}
+
+// ── Preview generation ──
+document.getElementById('generate-btn').addEventListener('click', async function() {
+  clearPreviewError();
+  var name = document.getElementById('child-name').value.trim();
+  var age = document.getElementById('child-age').value.trim();
+  var interests = document.getElementById('child-interests').value.trim();
+
+  if (!name) { showPreviewError("Please enter your child's name."); document.getElementById('child-name').focus(); return; }
+  if (!age || isNaN(age) || age < 0 || age > 12) { showPreviewError('Please enter a valid age (0–12).'); document.getElementById('child-age').focus(); return; }
+  if (!interests) { showPreviewError("Please tell us what your child loves."); document.getElementById('child-interests').focus(); return; }
+
+  // Show generating state
+  var btn = document.getElementById('generate-btn');
+  btn.disabled = true;
+  btn.textContent = 'Writing…';
+  document.getElementById('generating-name').textContent = name;
+  document.getElementById('generating-msg').classList.add('visible');
+  document.getElementById('story-reveal').classList.remove('visible');
+  document.getElementById('section-divider').classList.remove('visible');
+  document.getElementById('signup-panel').classList.remove('visible');
+
+  try {
+    var res = await fetch(API_BASE + '/api/ps/preview-story', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, age: parseInt(age), interests: interests })
+    });
+    var data = await res.json().catch(function() { return {}; });
+
+    document.getElementById('generating-msg').classList.remove('visible');
+
+    if (!res.ok || !data.story) {
+      showPreviewError(data.error || 'Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = '✦ Write my child\'s story';
+      return;
+    }
+
+    var storyText = cleanStory(data.story);
+    document.getElementById('story-child-name').textContent = name;
+    document.getElementById('story-reveal').classList.add('visible');
+
+    // Scroll to story
+    document.getElementById('story-reveal').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Typewrite the story then reveal signup
+    typewrite(document.getElementById('story-text'), storyText, function() {
+      setTimeout(function() {
+        document.getElementById('section-divider').classList.add('visible');
+        document.getElementById('signup-panel').classList.add('visible');
+        document.getElementById('signup-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 600);
+    });
+
+    btn.disabled = false;
+    btn.textContent = '✦ Write my child\'s story';
+
+  } catch(e) {
+    document.getElementById('generating-msg').classList.remove('visible');
+    showPreviewError('Could not reach our servers. Please check your connection and try again.');
+    btn.disabled = false;
+    btn.textContent = '✦ Write my child\'s story';
+  }
+});
+
+// Clear errors on input
+['child-name','child-age','child-interests'].forEach(function(id) {
+  document.getElementById(id).addEventListener('input', clearPreviewError);
+});
+
+// ── Stripe signup ──
+document.getElementById('submit-btn').addEventListener('click', async function() {
+  clearError();
+  var email = document.getElementById('email').value.trim().toLowerCase();
+  var plan = document.querySelector('input[name=plan]:checked').value;
+  if (!email) { showError('Please enter your email address.'); document.getElementById('email').focus(); return; }
+  if (!validEmail(email)) { showError('Please enter a valid email address.'); document.getElementById('email').classList.add('invalid'); return; }
+  var btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Redirecting to Stripe…';
+  try {
+    var res = await fetch(API_BASE + '/api/ps/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, plan_tier: plan })
+    });
+    var data = await res.json().catch(function() { return {}; });
+    if (res.ok && data.checkout_url) { window.location.href = data.checkout_url; return; }
+    showError(data.error || 'Something went wrong. Please try again.');
+  } catch(e) {
+    showError('Could not reach our servers. Please check your connection and try again.');
+  }
+  btn.disabled = false;
+  btn.textContent = 'Continue to Free Trial →';
+});
+document.getElementById('email').addEventListener('input', function() {
+  document.getElementById('email').classList.remove('invalid');
+  clearError();
+});
 </script>
 </body>
 </html>
