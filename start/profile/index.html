@@ -123,6 +123,23 @@ body{min-height:100vh}
         </div>
       </div>
 
+      <div class="field" style="margin-top:1rem">
+        <label for="child_photo">Photo of your child <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
+        <input type="file" id="child_photo" accept="image/jpeg,image/png,image/webp" style="display:none">
+        <div id="photo-upload-box" style="border:2px dashed var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center;cursor:pointer;transition:border-color .15s;background:var(--parchment)">
+          <div id="photo-upload-prompt">
+            <div style="font-size:1.5rem;margin-bottom:.4rem">📷</div>
+            <div style="font-size:.85rem;color:var(--muted);line-height:1.5">Upload a photo for a <strong>personalized likeness</strong> in every illustration<br><span style="font-size:.75rem;color:var(--faint)">JPEG or PNG · max 10MB · optional</span></div>
+          </div>
+          <div id="photo-preview-wrap" style="display:none">
+            <img id="photo-preview" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--border);margin-bottom:.5rem">
+            <div style="font-size:.78rem;color:var(--muted)" id="photo-filename"></div>
+            <button type="button" id="photo-remove" style="font-size:.72rem;color:var(--brown-light);background:none;border:none;cursor:pointer;margin-top:.25rem;text-decoration:underline">Remove photo</button>
+          </div>
+        </div>
+        <span class="field-hint" style="margin-top:.35rem;display:block">When provided, your child's face will appear in their story illustrations.</span>
+      </div>
+
       <div class="section-label">Interests &amp; story preferences</div>
       <div class="field" style="margin-bottom:1rem">
         <label>Interests <span class="req">*</span></label>
@@ -200,6 +217,32 @@ function removeTag(btn,wrapId,inputId){var tag=btn.closest('.tag'),text=tag.chil
 makeTagInput('interests-wrap','interests-input',interests);
 makeTagInput('avoid-wrap','avoid-input',avoidThemes);
 
+// Photo upload box
+(function(){
+  var box=document.getElementById('photo-upload-box');
+  var inp=document.getElementById('child_photo');
+  var prompt=document.getElementById('photo-upload-prompt');
+  var previewWrap=document.getElementById('photo-preview-wrap');
+  var previewImg=document.getElementById('photo-preview');
+  var filename=document.getElementById('photo-filename');
+  var removeBtn=document.getElementById('photo-remove');
+  box.addEventListener('click',function(e){if(e.target===removeBtn)return;inp.click();});
+  box.addEventListener('dragover',function(e){e.preventDefault();box.style.borderColor='var(--brown-light)';});
+  box.addEventListener('dragleave',function(){box.style.borderColor='';});
+  box.addEventListener('drop',function(e){e.preventDefault();box.style.borderColor='';var f=e.dataTransfer.files[0];if(f)setPhoto(f);});
+  inp.addEventListener('change',function(){if(inp.files[0])setPhoto(inp.files[0]);});
+  removeBtn.addEventListener('click',function(e){e.stopPropagation();inp.value='';prompt.style.display='';previewWrap.style.display='none';box.style.borderColor='';});
+  function setPhoto(f){
+    if(f.size>10*1024*1024){showError('Photo must be under 10MB.');return;}
+    var reader=new FileReader();
+    reader.onload=function(ev){previewImg.src=ev.target.result;};
+    reader.readAsDataURL(f);
+    filename.textContent=f.name;
+    prompt.style.display='none';
+    previewWrap.style.display='';
+  }
+})();
+
 function showError(m){var el=document.getElementById('form-error');el.textContent=m;el.classList.add('visible');}
 function clearError(){document.getElementById('form-error').classList.remove('visible');}
 function markInvalid(id){document.getElementById(id).classList.add('invalid');}
@@ -235,7 +278,20 @@ document.getElementById('submit-btn').addEventListener('click',async function(){
   try{
     var res=await fetch(API+'/api/ps/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     var data=await res.json().catch(function(){return{};});
-    if(res.ok){document.getElementById('form-card').style.display='none';document.getElementById('success-screen').classList.add('visible');}
+    if(res.ok){
+      var childId=data.child_id;
+      var photoFile=document.getElementById('child_photo').files[0];
+      if(photoFile&&childId){
+        try{
+          var fd=new FormData();
+          fd.append('child_id',childId);
+          fd.append('photo',photoFile);
+          await fetch(API+'/api/ps/upload-photo',{method:'POST',body:fd});
+        }catch(e){/* non-fatal — story still delivers without photo */}
+      }
+      document.getElementById('form-card').style.display='none';
+      document.getElementById('success-screen').classList.add('visible');
+    }
     else{showError(data.error||'Something went wrong. Please try again.');btn.disabled=false;btn.textContent='Save Profile & Start Stories →';}
   }catch(e){showError('Could not reach our servers. Please try again.');btn.disabled=false;btn.textContent='Save Profile & Start Stories →';}
 });
