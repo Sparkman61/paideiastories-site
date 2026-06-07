@@ -219,6 +219,20 @@ body{min-height:100vh}
 <script>
 var API_BASE = 'https://api.paideiastories.com';
 
+// Client-side content filter — mirrors server blocklist
+var _BLOCKED = ['sex','porn','nude','naked','adult','erotic','xxx','kill','murder',
+  'death','suicide','rape','abuse','drugs','cocaine','heroin','meth','weed',
+  'marijuana','alcohol','beer','wine','whiskey','vodka','gun','weapon','bomb',
+  'violence','gore','racist','nazi','hate'];
+function interestsSafe(val) {
+  var lower = val.toLowerCase();
+  for (var i = 0; i < _BLOCKED.length; i++) {
+    var re = new RegExp('\\b' + _BLOCKED[i] + '\\b');
+    if (re.test(lower)) return false;
+  }
+  return true;
+}
+
 // ── Plan selection ──
 document.querySelectorAll('input[name=plan]').forEach(function(r) {
   r.addEventListener('change', function() {
@@ -285,6 +299,7 @@ document.getElementById('generate-btn').addEventListener('click', async function
   if (!name) { showPreviewError("Please enter your child's name."); document.getElementById('child-name').focus(); return; }
   if (!age || isNaN(age) || age < 0 || age > 12) { showPreviewError('Please enter a valid age (0–12).'); document.getElementById('child-age').focus(); return; }
   if (!interests) { showPreviewError("Please tell us what your child loves."); document.getElementById('child-interests').focus(); return; }
+  if (!interestsSafe(interests)) { showPreviewError('Please enter age-appropriate interests for your child.'); document.getElementById('child-interests').focus(); return; }
 
   // Show generating state
   var btn = document.getElementById('generate-btn');
