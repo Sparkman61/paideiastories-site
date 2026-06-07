@@ -99,9 +99,9 @@ body{min-height:100vh}
         </div>
       </div>
 
-      <div class="section-label">Appearance <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.75rem;color:var(--faint)">— used to illustrate your child in the story</span></div>
+      <div class="section-label">Appearance <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:.75rem;color:var(--faint)">— optional if you upload a photo below</span></div>
       <div class="field" style="margin-bottom:1rem">
-        <label>Skin tone <span class="req">*</span></label>
+        <label>Skin tone <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
         <div class="skin-grid">
           <label class="skin-option"><input type="radio" name="skin_tone" value="1"><div class="skin-swatch" style="background:#FDDBB4"></div><span class="skin-label">1</span></label>
           <label class="skin-option"><input type="radio" name="skin_tone" value="2"><div class="skin-swatch" style="background:#F5C89A"></div><span class="skin-label">2</span></label>
@@ -112,13 +112,13 @@ body{min-height:100vh}
         </div>
       </div>
       <div class="field-row cols-3">
-        <div class="field"><label for="hair_color">Hair color <span class="req">*</span></label>
+        <div class="field"><label for="hair_color">Hair color <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
           <select id="hair_color"><option value="">Select...</option><option>Black</option><option>Dark brown</option><option>Brown</option><option>Light brown</option><option>Blonde</option><option>Red</option><option>Auburn</option><option>Gray</option><option>White</option></select>
         </div>
-        <div class="field"><label for="hair_style">Hair style <span class="req">*</span></label>
+        <div class="field"><label for="hair_style">Hair style <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
           <select id="hair_style"><option value="">Select...</option><option>Straight</option><option>Wavy</option><option>Curly</option><option>Coily</option><option>Short</option><option>Long</option><option>Braided</option><option>Ponytail</option></select>
         </div>
-        <div class="field"><label for="eye_color">Eye color <span class="req">*</span></label>
+        <div class="field"><label for="eye_color">Eye color <span style="font-weight:400;color:var(--faint)">(optional)</span></label>
           <select id="eye_color"><option value="">Select...</option><option>Brown</option><option>Dark brown</option><option>Hazel</option><option>Green</option><option>Blue</option><option>Gray</option></select>
         </div>
       </div>
@@ -263,16 +263,26 @@ document.getElementById('submit-btn').addEventListener('click',async function(){
   if(!name){showError('Please enter your child\'s name.');markInvalid('name');return;}
   if(!age){showError('Please select your child\'s age.');markInvalid('age');return;}
   if(!gender){showError('Please select gender.');markInvalid('gender');return;}
-  if(!skin){showError('Please select a skin tone.');return;}
-  if(!hair_color){showError('Please select hair color.');markInvalid('hair_color');return;}
-  if(!hair_style){showError('Please select hair style.');markInvalid('hair_style');return;}
-  if(!eye_color){showError('Please select eye color.');markInvalid('eye_color');return;}
   if(!interests.length){showError('Please add at least one interest.');document.getElementById('interests-wrap').classList.add('invalid');return;}
 
   var btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Saving…';
   var params=new URLSearchParams(window.location.search);
   var subscriber_id=params.get('subscriber_id');
-  var payload={name,age:parseInt(age),gender,skin_tone:parseInt(skin.value),hair_color,hair_style,eye_color,interests_json:JSON.stringify(interests),avoid_themes_json:JSON.stringify(avoidThemes),educational_focus:educational_focus||null,delivery_time,timezone};
+  // Appearance fields are optional — use defaults when not selected
+  var payload={
+    name,
+    age:parseInt(age),
+    gender,
+    skin_tone:skin?parseInt(skin.value):1,
+    hair_color:hair_color||'',
+    hair_style:hair_style||'',
+    eye_color:eye_color||'',
+    interests_json:JSON.stringify(interests),
+    avoid_themes_json:JSON.stringify(avoidThemes),
+    educational_focus:educational_focus||null,
+    delivery_time,
+    timezone
+  };
   if(subscriber_id)payload.subscriber_id=subscriber_id;
 
   try{
