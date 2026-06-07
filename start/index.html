@@ -284,9 +284,13 @@ function clearError() {
 }
 function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-// Strip leading markdown heading if model includes one
+// Strip any leading # characters and whitespace the model may include
 function cleanStory(text) {
-  return text.replace(/^#+\s+.+\n+/, '').trim();
+  // Remove a full heading line (e.g. "# Title\n")
+  text = text.replace(/^#+\s+.+\n+/, '');
+  // Also strip a bare leading # with no newline (model used # to start the paragraph)
+  text = text.replace(/^#+\s*/, '');
+  return text.trim();
 }
 
 // Typewriter effect
